@@ -1,163 +1,190 @@
 "use client";
 
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { MotionValue, useMotionValueEvent } from "framer-motion";
+import type { ReactNode } from "react";
+import { useState } from "react";
 
 interface OverlayProps {
   progress: MotionValue<number>;
 }
 
+type StoryBeat = {
+  id: string;
+  align: "left" | "center" | "right";
+  title: ReactNode;
+  body?: ReactNode;
+  cta?: ReactNode;
+};
+
+const beats: StoryBeat[] = [
+  {
+    id: "opening",
+    align: "center",
+    title: <>Dr. Sahil Haria, PhD</>,
+    body: (
+      <>
+        Founder. <br className="block md:hidden" />
+        <span className="hidden md:inline">{" "}</span>
+        Growth strategist. <br className="block md:hidden" />
+        <span className="hidden md:inline">{" "}</span>
+        Endurance builder.
+      </>
+    ),
+    cta: (
+      <div className="pointer-events-auto mt-10 flex flex-col justify-start gap-3 sm:flex-row md:justify-center">
+        <a href="#connect" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-white/90 md:text-base">
+          Start a Conversation
+        </a>
+        <a href="#mirar" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
+          Explore Mirar
+        </a>
+        <a href="#jagruti" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
+          Explore Jagruti
+        </a>
+        <a href="#focus" className="inline-flex min-h-12 items-center justify-center rounded-full px-3 py-3 text-center text-sm font-medium text-white/75 transition-colors hover:text-white md:text-base">
+          View Full Journey &rarr;
+        </a>
+      </div>
+    ),
+  },
+  {
+    id: "systems",
+    align: "right",
+    title: (
+      <>
+        Building systems <br className="hidden md:block" />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">for clarity.</span>
+      </>
+    ),
+    body: (
+      <>
+        In business. <br />
+        In products. <br />
+        In the self.
+      </>
+    ),
+  },
+  {
+    id: "mirar",
+    align: "left",
+    title: (
+      <>
+        Mirar is my deepest <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">current build.</span>
+      </>
+    ),
+    body: (
+      <>
+        A daily emotional and mental hygiene system <br className="hidden md:block" />
+        for people navigating identity, ambition, and alignment.
+      </>
+    ),
+  },
+  {
+    id: "jagruti",
+    align: "right",
+    title: (
+      <>
+        Jagruti connects me <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">to legacy.</span>
+      </>
+    ),
+    body: (
+      <>
+        Stainless steel. <br />
+        Manufacturing. <br />
+        Family business. <br />
+        Modern growth.
+      </>
+    ),
+  },
+  {
+    id: "endurance",
+    align: "left",
+    title: (
+      <>
+        The body keeps <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-400">me honest.</span>
+      </>
+    ),
+    body: (
+      <>
+        One Ironman 70.3. <br />
+        Three HYROX events. <br />
+        More than five full marathons. <br />
+        More than ten half marathons. <br />
+        Two ultra marathons.
+      </>
+    ),
+  },
+  {
+    id: "map",
+    align: "center",
+    title: <>This is not a resume.</>,
+    body: (
+      <>
+        It is a map of what I’m building,<br className="hidden md:block" />
+        what shaped me,<br className="hidden md:block" />
+        and what I’m still becoming.
+      </>
+    ),
+    cta: (
+      <a href="#connect" className="pointer-events-auto mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3.5 text-base font-medium text-black transition-colors hover:bg-white/90">
+        Connect with me
+      </a>
+    ),
+  },
+];
+
+function getActiveBeat(progress: number) {
+  if (progress < 0.16) return 0;
+  if (progress < 0.32) return 1;
+  if (progress < 0.49) return 2;
+  if (progress < 0.66) return 3;
+  if (progress < 0.83) return 4;
+  return 5;
+}
+
 export default function Overlay({ progress }: OverlayProps) {
-  // Section 1: Hero / Opening (0 - 0.14)
-  const opacity1 = useTransform(progress, [0, 0.10, 0.14], [1, 1, 0]);
-  const y1 = useTransform(progress, [0, 0.10, 0.14], [0, 0, -100]);
-  const display1 = useTransform(progress, p => p > 0.15 ? "none" : "flex");
+  const [active, setActive] = useState(0);
 
-  // Section 2: Current Focus (0.16 - 0.31)
-  const opacity2 = useTransform(progress, [0.16, 0.19, 0.28, 0.31], [0, 1, 1, 0]);
-  const y2 = useTransform(progress, [0.16, 0.19, 0.28, 0.31], [100, 0, 0, -100]);
-  const display2 = useTransform(progress, p => p < 0.15 || p > 0.32 ? "none" : "flex");
-
-  // Section 3: Mirar (0.33 - 0.48)
-  const opacity3 = useTransform(progress, [0.33, 0.36, 0.45, 0.48], [0, 1, 1, 0]);
-  const y3 = useTransform(progress, [0.33, 0.36, 0.45, 0.48], [100, 0, 0, -100]);
-  const display3 = useTransform(progress, p => p < 0.32 || p > 0.49 ? "none" : "flex");
-
-  // Section 4: Jagruti (0.50 - 0.65)
-  const opacity4 = useTransform(progress, [0.50, 0.53, 0.62, 0.65], [0, 1, 1, 0]);
-  const y4 = useTransform(progress, [0.50, 0.53, 0.62, 0.65], [100, 0, 0, -100]);
-  const display4 = useTransform(progress, p => p < 0.49 || p > 0.66 ? "none" : "flex");
-
-  // Section 5: Endurance (0.67 - 0.82)
-  const opacity5 = useTransform(progress, [0.67, 0.70, 0.79, 0.82], [0, 1, 1, 0]);
-  const y5 = useTransform(progress, [0.67, 0.70, 0.79, 0.82], [100, 0, 0, -100]);
-  const display5 = useTransform(progress, p => p < 0.66 || p > 0.83 ? "none" : "flex");
-
-  // Section 6: Transition Into Site (0.84 - 1.0)
-  const opacity6 = useTransform(progress, [0.84, 0.87, 0.95, 1], [0, 1, 1, 0]);
-  const y6 = useTransform(progress, [0.84, 0.87, 0.95, 1], [100, 0, 0, -100]);
-  const display6 = useTransform(progress, p => p < 0.83 ? "none" : "flex");
+  useMotionValueEvent(progress, "change", (latest) => {
+    const next = getActiveBeat(latest);
+    setActive((current) => (current === next ? current : next));
+  });
 
   return (
-    <div className="absolute inset-0 z-10 pointer-events-none flex flex-col justify-center px-8 md:px-24">
-      {/* Overlay 1 — Opening */}
-      <motion.div
-        style={{ opacity: opacity1, y: y1, display: display1 }}
-        className="absolute inset-0 flex items-center justify-start md:justify-center px-8 md:px-24"
-      >
-        <div className="text-left md:text-center mt-32 md:mt-0">
-          <h1 className="max-w-5xl text-5xl md:text-7xl font-bold text-white tracking-tight drop-shadow-2xl leading-[0.95]">
-            Dr. Sahil Haria, PhD
-          </h1>
-          <p className="mt-6 text-xl md:text-3xl text-white/80 font-light drop-shadow-lg leading-relaxed">
-            Founder. <br className="block md:hidden" />
-            <span className="hidden md:inline">{" "}</span>
-            Growth strategist. <br className="block md:hidden" />
-            <span className="hidden md:inline">{" "}</span>
-            Endurance builder.
-          </p>
-          <div className="pointer-events-auto mt-12 flex flex-col sm:flex-row gap-4 justify-start md:justify-center">
-            <a href="#mirar" className="px-6 py-3 bg-white text-black font-medium rounded-full hover:bg-white/90 transition-colors inline-block text-center">
-              Explore Mirar
-            </a>
-            <a href="#jagruti" className="px-6 py-3 bg-white/10 text-white font-medium rounded-full hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/10 inline-block text-center">
-              Explore Jagruti
-            </a>
-            <a href="#journey" className="px-6 py-3 text-white/70 font-medium hover:text-white transition-colors inline-block text-center mt-2 sm:mt-0">
-              View Full Journey &rarr;
-            </a>
+    <div className="pointer-events-none absolute inset-0 z-10 px-8 md:px-24">
+      {beats.map((beat, index) => {
+        const isActive = active === index;
+        const alignClass = {
+          left: "items-center justify-start text-left",
+          center: "items-center justify-start text-left md:justify-center md:text-center",
+          right: "items-center justify-start text-left md:justify-end md:text-right",
+        }[beat.align];
+
+        return (
+          <div
+            key={beat.id}
+            aria-hidden={!isActive}
+            className={`absolute inset-0 flex ${alignClass} px-0 transition-all duration-500 ease-out ${
+              isActive ? "visible translate-y-0 opacity-100" : "invisible translate-y-8 opacity-0"
+            }`}
+          >
+            <div className="mt-24 max-w-5xl md:mt-0">
+              <h1 className="text-5xl font-bold leading-[0.96] tracking-tight text-white drop-shadow-2xl md:text-7xl">
+                {beat.title}
+              </h1>
+              {beat.body ? (
+                <p className="mt-6 text-xl font-light leading-relaxed text-white/80 drop-shadow-lg md:text-3xl">
+                  {beat.body}
+                </p>
+              ) : null}
+              {beat.cta}
+            </div>
           </div>
-        </div>
-      </motion.div>
-
-      {/* Overlay 2 — Current Focus */}
-      <motion.div
-        style={{ opacity: opacity2, y: y2, display: display2 }}
-        className="absolute inset-0 flex items-center justify-end px-8 md:px-24"
-      >
-        <div className="text-right max-w-2xl">
-          <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
-            Building systems <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">for clarity.</span>
-          </h2>
-          <p className="mt-6 text-xl md:text-2xl text-white/80 font-light drop-shadow-lg leading-relaxed">
-            In business. <br />
-            In products. <br />
-            In the self.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Overlay 3 — Mirar */}
-      <motion.div
-        style={{ opacity: opacity3, y: y3, display: display3 }}
-        className="absolute inset-0 flex items-center justify-start px-8 md:px-24"
-      >
-        <div className="text-left max-w-3xl">
-          <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
-            Mirar is my deepest <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">current build.</span>
-          </h2>
-          <p className="mt-6 text-xl md:text-2xl text-white/80 font-light drop-shadow-lg leading-relaxed">
-            A daily emotional and mental hygiene system <br />
-            for people navigating identity, ambition, and alignment.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Overlay 4 — Jagruti */}
-      <motion.div
-        style={{ opacity: opacity4, y: y4, display: display4 }}
-        className="absolute inset-0 flex items-center justify-end px-8 md:px-24"
-      >
-        <div className="text-right max-w-2xl">
-          <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
-            Jagruti connects me <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">to legacy.</span>
-          </h2>
-          <p className="mt-6 text-xl md:text-2xl text-white/80 font-light drop-shadow-lg leading-relaxed">
-            Stainless steel. <br />
-            Manufacturing. <br />
-            Family business. <br />
-            Modern growth.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Overlay 5 — Endurance */}
-      <motion.div
-        style={{ opacity: opacity5, y: y5, display: display5 }}
-        className="absolute inset-0 flex items-center justify-start px-8 md:px-24"
-      >
-        <div className="text-left max-w-2xl">
-          <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
-            The body keeps <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-400">me honest.</span>
-          </h2>
-          <p className="mt-6 text-xl md:text-2xl text-white/80 font-light drop-shadow-lg leading-relaxed">
-            One Ironman 70.3. <br />
-            Three HYROX events. <br />
-            Five-plus full marathons. <br />
-            Two ultra marathons.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Overlay 6 — Transition Into Site */}
-      <motion.div
-        style={{ opacity: opacity6, y: y6, display: display6 }}
-        className="absolute inset-0 flex items-center justify-center px-8 md:px-24"
-      >
-        <div className="text-center max-w-3xl">
-          <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight drop-shadow-2xl">
-            This is not a resume.
-          </h2>
-          <p className="mt-8 text-2xl md:text-4xl text-white/80 font-light drop-shadow-lg leading-relaxed">
-            It is a map of what I’m building,<br />
-            what shaped me,<br />
-            and what I’m still becoming.
-          </p>
-        </div>
-      </motion.div>
+        );
+      })}
     </div>
   );
 }
