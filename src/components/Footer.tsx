@@ -18,7 +18,7 @@ export default function Footer() {
         
         <div className="text-center md:text-left">
           <p className="text-white/40 text-sm tracking-widest uppercase mb-4">
-            Sahil Haria © {new Date().getFullYear()}
+            Dr. Sahil Haria, PhD © {new Date().getFullYear()}
           </p>
           <p className="text-white/60 text-sm">
             Building with clarity, alignment, and purpose — one chapter at a time.

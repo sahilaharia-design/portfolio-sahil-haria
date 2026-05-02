@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import Overlay from "./Overlay";
 
@@ -15,13 +15,9 @@ const padZero = (num: number, size: number) => {
 export default function ScrollyCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const loadedFramesRef = useRef<boolean[]>(Array(FRAME_COUNT).fill(false));
+  const [sequenceReady, setSequenceReady] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -33,31 +29,41 @@ export default function ScrollyCanvas() {
   // Preload images
   useEffect(() => {
     const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
 
-    const checkAllLoaded = () => {
-      loadedCount++;
-      if (loadedCount === FRAME_COUNT) {
-        setImagesLoaded(true);
+    loadedFramesRef.current = Array(FRAME_COUNT).fill(false);
+
+    const checkLoaded = (index: number) => {
+      loadedFramesRef.current[index] = true;
+
+      if (index === 0) {
+        setSequenceReady(true);
       }
     };
 
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
+      img.onload = () => checkLoaded(i);
+      img.onerror = () => checkLoaded(i); // Avoid blocking the opening if a frame is missing.
       img.src = `/sequence/frame_${padZero(i, 3)}_delay-0.066s.webp`;
-      img.onload = checkAllLoaded;
-      img.onerror = checkAllLoaded; // Ensure it still resolves if frames are missing
       loadedImages.push(img);
     }
-    setImages(loadedImages);
+    imagesRef.current = loadedImages;
   }, []);
 
-  const drawImage = (index: number) => {
+  const drawImage = useCallback((index: number) => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
-    const img = images[index];
+    let safeIndex = index;
 
-    if (!canvas || !ctx || !img) return;
+    if (!loadedFramesRef.current[safeIndex]) {
+      const previousLoaded = loadedFramesRef.current.lastIndexOf(true, safeIndex);
+      const nextLoaded = loadedFramesRef.current.findIndex((loaded, idx) => loaded && idx > safeIndex);
+      safeIndex = previousLoaded >= 0 ? previousLoaded : nextLoaded;
+    }
+
+    const img = imagesRef.current[safeIndex];
+
+    if (!canvas || !ctx || !img || !img.naturalWidth || !img.naturalHeight) return;
 
     // Object-fit: cover logic
     const canvasRatio = canvas.width / canvas.height;
@@ -78,11 +84,11 @@ export default function ScrollyCanvas() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-  };
+  }, []);
 
   // Draw first frame when loaded or resized
   useEffect(() => {
-    if (!imagesLoaded) return;
+    if (!sequenceReady) return;
 
     const resizeCanvas = () => {
       if (canvasRef.current) {
@@ -96,11 +102,11 @@ export default function ScrollyCanvas() {
     resizeCanvas(); // initial draw
 
     return () => window.removeEventListener("resize", resizeCanvas);
-  }, [imagesLoaded]);
+  }, [sequenceReady, frameIndex, drawImage]);
 
   // Update canvas on scroll
   useMotionValueEvent(frameIndex, "change", (latest) => {
-    if (imagesLoaded) {
+    if (sequenceReady) {
       drawImage(Math.round(latest));
     }
   });
@@ -113,10 +119,10 @@ export default function ScrollyCanvas() {
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-[#121212]/60 pointer-events-none" />
         
-        {mounted && <Overlay progress={scrollYProgress} />}
+        <Overlay progress={scrollYProgress} />
 
         {/* Loading state indicator */}
-        {!imagesLoaded && (
+        {!sequenceReady && (
           <div className="absolute inset-0 flex items-center justify-center bg-[#121212]/80 z-50 backdrop-blur-sm pointer-events-none">
             <div className="text-white/50 text-sm animate-pulse tracking-widest uppercase">
               Loading Experience...

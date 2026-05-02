@@ -45,8 +45,8 @@ export default function Overlay({ progress }: OverlayProps) {
         className="absolute inset-0 flex items-center justify-start md:justify-center px-8 md:px-24"
       >
         <div className="text-left md:text-center mt-32 md:mt-0">
-          <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight drop-shadow-2xl">
-            Sahil Haria
+          <h1 className="max-w-5xl text-5xl md:text-7xl font-bold text-white tracking-tight drop-shadow-2xl leading-[0.95]">
+            Dr. Sahil Haria, PhD
           </h1>
           <p className="mt-6 text-xl md:text-3xl text-white/80 font-light drop-shadow-lg leading-relaxed">
             Founder. <br className="block md:hidden" />
@@ -134,10 +134,10 @@ export default function Overlay({ progress }: OverlayProps) {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-400">me honest.</span>
           </h2>
           <p className="mt-6 text-xl md:text-2xl text-white/80 font-light drop-shadow-lg leading-relaxed">
-            Ironman 70.3 Goa. <br />
-            HYROX. <br />
-            Marathons. <br />
-            Ultra-distance running.
+            One Ironman 70.3. <br />
+            Three HYROX events. <br />
+            Five-plus full marathons. <br />
+            Two ultra marathons.
           </p>
         </div>
       </motion.div>

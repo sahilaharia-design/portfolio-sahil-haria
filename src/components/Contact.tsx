@@ -14,7 +14,7 @@ export default function Contact() {
         </p>
 
         <div className="mb-16">
-          <p className="text-white/90 font-medium text-lg">Sahil Haria</p>
+          <p className="text-white/90 font-medium text-lg">Dr. Sahil Haria, PhD</p>
           <p className="text-white/50 text-sm tracking-widest uppercase mt-2">Mumbai, India</p>
         </div>
 
