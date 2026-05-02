@@ -4,6 +4,9 @@ import { FormEvent, useState } from "react";
 
 type FormState = "idle" | "sending" | "sent" | "fallback" | "error";
 
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxfyqjwanPTz87BfevFproCuRNZkrz6EUCjkS1DIF7Nbk2OfptDMT318ATQYR0CC2A9/exec";
+
 const initialForm = {
   name: "",
   email: "",
@@ -41,37 +44,28 @@ export default function LeadForm() {
     setFeedback("");
 
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain;charset=utf-8",
         },
         body: JSON.stringify({
           ...form,
+          submittedAt: new Date().toISOString(),
           page: typeof window !== "undefined" ? window.location.href : "",
+          source: "sahilharia.com",
         }),
       });
 
-      const result = await response.json();
-
-      if (response.ok && result.ok) {
-        setState("sent");
-        setFeedback("Thanks. Your note is in. I’ll get back to you soon.");
-        setForm(initialForm);
-        return;
-      }
-
-      if (result.fallback === "mailto") {
-        setState("fallback");
-        setFeedback("The direct form pipeline is not configured yet. Opening an email draft instead.");
-        window.location.href = buildMailto();
-        return;
-      }
-
-      throw new Error(result.error || "Unable to send");
+      setState("sent");
+      setFeedback("Thanks. Your note is in. I’ll get back to you soon.");
+      setForm(initialForm);
+      return;
     } catch {
-      setState("error");
-      setFeedback("Something went sideways. Please use the email button below.");
+      setState("fallback");
+      setFeedback("Something went sideways. Opening an email draft instead.");
+      window.location.href = buildMailto();
     }
   };
 
