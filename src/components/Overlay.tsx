@@ -23,17 +23,17 @@ const beats: StoryBeat[] = [
     title: <>Dr. Sahil Haria, PhD</>,
     body: (
       <>
-        Founder. <br className="block md:hidden" />
+        Building at the intersection of <br className="block md:hidden" />
         <span className="hidden md:inline">{" "}</span>
-        Growth strategist. <br className="block md:hidden" />
+        AI, growth, inner clarity, <br className="block md:hidden" />
         <span className="hidden md:inline">{" "}</span>
-        Endurance builder.
+        and legacy business.
       </>
     ),
     cta: (
       <div className="pointer-events-auto mt-10 flex flex-col justify-start gap-3 sm:flex-row md:justify-center">
         <a href="#connect" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-white/90 md:text-base">
-          Start a Conversation
+          Build Together
         </a>
         <a href="#mirar" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
           Explore Mirar
@@ -58,9 +58,9 @@ const beats: StoryBeat[] = [
     ),
     body: (
       <>
-        In business. <br />
-        In products. <br />
-        In the self.
+        For AI-speed markets. <br />
+        For founder clarity. <br />
+        For businesses that need to evolve.
       </>
     ),
   },
@@ -75,8 +75,8 @@ const beats: StoryBeat[] = [
     ),
     body: (
       <>
-        A daily emotional and mental hygiene system <br className="hidden md:block" />
-        for people navigating identity, ambition, and alignment.
+        A daily inner operating system <br className="hidden md:block" />
+        for people navigating ambition, identity, and alignment.
       </>
     ),
   },
@@ -94,7 +94,7 @@ const beats: StoryBeat[] = [
         Stainless steel. <br />
         Manufacturing. <br />
         Family business. <br />
-        Modern growth.
+        Next-generation growth.
       </>
     ),
   },
@@ -125,12 +125,12 @@ const beats: StoryBeat[] = [
       <>
         It is a map of what I’m building,<br className="hidden md:block" />
         what shaped me,<br className="hidden md:block" />
-        and what I’m still becoming.
+        and the world I want to build with others.
       </>
     ),
     cta: (
       <a href="#connect" className="pointer-events-auto mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3.5 text-base font-medium text-black transition-colors hover:bg-white/90">
-        Connect with me
+        Let’s Build Together
       </a>
     ),
   },
@@ -154,7 +154,7 @@ export default function Overlay({ progress }: OverlayProps) {
   });
 
   return (
-    <div className="pointer-events-none absolute inset-0 z-10 px-8 md:px-24">
+    <div className="pointer-events-none absolute inset-0 z-10">
       {beats.map((beat, index) => {
         const isActive = active === index;
         const alignClass = {
@@ -167,16 +167,16 @@ export default function Overlay({ progress }: OverlayProps) {
           <div
             key={beat.id}
             aria-hidden={!isActive}
-            className={`absolute inset-0 flex ${alignClass} px-0 transition-all duration-500 ease-out ${
+            className={`absolute inset-y-0 left-8 right-8 flex ${alignClass} transition-all duration-500 ease-out sm:left-12 sm:right-12 md:left-28 md:right-28 xl:left-40 xl:right-40 ${
               isActive ? "visible translate-y-0 opacity-100" : "invisible translate-y-8 opacity-0"
             }`}
           >
             <div className="mt-24 max-w-5xl md:mt-0">
-              <h1 className="text-5xl font-bold leading-[0.96] tracking-tight text-white drop-shadow-2xl md:text-7xl">
+              <h1 className="text-3xl font-bold leading-[1.04] tracking-tight text-white drop-shadow-2xl sm:text-5xl md:text-7xl">
                 {beat.title}
               </h1>
               {beat.body ? (
-                <p className="mt-6 text-xl font-light leading-relaxed text-white/80 drop-shadow-lg md:text-3xl">
+                <p className="mt-5 max-w-3xl text-base font-light leading-relaxed text-white/80 drop-shadow-lg sm:text-xl md:mt-6 md:text-3xl">
                   {beat.body}
                 </p>
               ) : null}

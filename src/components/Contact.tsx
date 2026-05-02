@@ -9,18 +9,18 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-start">
         <div>
           <p className="text-sm font-medium uppercase tracking-[0.28em] text-white/35 mb-5">
-            Start here
+            Build with me
           </p>
           <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-8">
-            Let’s build the next conversation.
+            Let’s build useful things for a faster world.
           </h3>
           
           <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed mb-10">
-            Open to collaborations, speaking opportunities, growth and product advisory, and thoughtful conversations around founder journeys.
+            I’m interested in thoughtful collaborations around AI-era growth, product systems, emotional clarity, legacy business modernization, and founder journeys that deserve more depth than a quick call.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-            {["Speaking", "Advisory", "Partnerships", "Founder conversations"].map((item) => (
+            {["Build together", "AI and growth", "Founder conversations", "Legacy modernization"].map((item) => (
               <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/70">
                 {item}
               </div>

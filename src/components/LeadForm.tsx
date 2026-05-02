@@ -7,7 +7,7 @@ type FormState = "idle" | "sending" | "sent" | "fallback" | "error";
 const initialForm = {
   name: "",
   email: "",
-  interest: "Collaborate",
+  interest: "Build together",
   message: "",
 };
 
@@ -105,19 +105,20 @@ export default function LeadForm() {
       </div>
 
       <label className="mt-4 block">
-        <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">What should we talk about?</span>
+        <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">Where should we begin?</span>
         <select
           name="interest"
           value={form.interest}
           onChange={(event) => updateField("interest", event.target.value)}
           className="h-12 w-full rounded-xl border border-white/10 bg-black/30 px-4 text-white outline-none transition-colors focus:border-white/35"
         >
-          <option>Collaborate</option>
-          <option>Speaking opportunity</option>
-          <option>Growth or product advisory</option>
+          <option>Build together</option>
+          <option>AI and growth systems</option>
           <option>Founder conversation</option>
-          <option>Jagruti / manufacturing</option>
+          <option>Legacy business modernization</option>
           <option>Mirar</option>
+          <option>Jagruti / manufacturing</option>
+          <option>Speaking or workshop</option>
         </select>
       </label>
 
@@ -130,7 +131,7 @@ export default function LeadForm() {
           value={form.message}
           onChange={(event) => updateField("message", event.target.value)}
           className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/35"
-          placeholder="A little context, timing, links, or what you’re building..."
+          placeholder="A little context: what you’re building, what is changing, or where you think we could create something useful..."
         />
       </label>
 
@@ -140,7 +141,7 @@ export default function LeadForm() {
           disabled={state === "sending"}
           className="inline-flex h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-semibold text-black transition-colors hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {state === "sending" ? "Sending..." : "Send the note"}
+          {state === "sending" ? "Sending..." : "Start the conversation"}
         </button>
         <a
           href="mailto:sahilaharia@gmail.com"

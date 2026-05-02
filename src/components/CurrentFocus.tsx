@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function CurrentFocus() {
   return (
@@ -10,19 +11,19 @@ export default function CurrentFocus() {
         </h3>
         <div className="space-y-6 text-xl text-white/70 font-light leading-relaxed">
           <p>
-            My current work is anchored in two active pillars.
+            My current work sits inside a larger question: as AI changes how fast products, markets, and teams move, how do we build with more clarity instead of just more noise?
           </p>
           <p>
-            <strong className="text-white font-medium">Mirar</strong> is where I’m building around emotional and mental hygiene — a daily self-reflection system for clarity, alignment, and inner honesty.
+            <strong className="text-white font-medium">Mirar</strong> is where I’m building around emotional and mental hygiene — a daily system for inner clarity, alignment, and self-awareness in an accelerated world.
           </p>
           <p>
-            <strong className="text-white font-medium">Jagruti</strong> connects me to the world of Indian manufacturing, family business, stainless steel OEM production, and the modernization of legacy industries.
+            <strong className="text-white font-medium">Jagruti</strong> connects that same systems thinking to Indian manufacturing, family business, stainless steel OEM production, and the modernization of legacy industries.
           </p>
           <p>
             Alongside these, Jugaadors lets me explore culture and storytelling through board games, while Sociato carries forward my foundation in digital growth, creative execution, and brand building.
           </p>
           <p className="pt-6 text-2xl text-white/90 italic border-t border-white/10 mt-12">
-            Different worlds on the surface. But underneath, they return to the same question: How do we build systems — for people, products, and businesses — that move with more clarity and intention?
+            Different worlds on the surface. Underneath, the work returns to one thing: building systems for people, products, and businesses that can grow without losing intention.
           </p>
         </div>
       </div>
@@ -66,9 +67,15 @@ export default function CurrentFocus() {
               </div>
             </div>
             
-            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[400px] rounded-2xl overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" alt="Mirar" className="w-full h-full object-cover opacity-60 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80" />
+            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[360px] rounded-2xl overflow-hidden relative border border-white/10 bg-[radial-gradient(circle_at_30%_30%,rgba(196,181,253,0.18),transparent_36%),linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
+              <div className="absolute inset-0 bg-black/20" />
+              <Image
+                src="/mirar-logo.png"
+                alt="Mirar logo"
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-contain p-4 md:p-6 transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
           </div>
         </div>
@@ -108,9 +115,15 @@ export default function CurrentFocus() {
               </div>
             </div>
             
-            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[400px] rounded-2xl overflow-hidden relative">
-              <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&q=80&w=800" alt="Jagruti Group" className="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 transition-all duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-80" />
+            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[360px] rounded-2xl overflow-hidden relative border border-white/10 bg-[radial-gradient(circle_at_70%_20%,rgba(56,189,248,0.16),transparent_34%),linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.015))]">
+              <div className="absolute inset-0 bg-black/20" />
+              <Image
+                src="/jagruti-logo.png"
+                alt="Jagruti Steels logo"
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-contain p-4 md:p-6 transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
           </div>
         </div>
