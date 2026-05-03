@@ -10,6 +10,7 @@ import {
   MessageCircle,
   Send,
   Sparkles,
+  Phone,
   X,
 } from "lucide-react";
 
@@ -28,6 +29,8 @@ type KnowledgeCard = {
 
 const email = "sahilaharia@gmail.com";
 const linkedinUrl = "https://www.linkedin.com/in/sahilharia92/";
+const whatsappUrl =
+  "https://wa.me/15107665873?text=Hi%20Sahil%2C%20I%20came%20from%20your%20portfolio%20website%20and%20wanted%20to%20connect.";
 
 const quickPrompts = [
   "What is Sahil building now?",
@@ -327,9 +330,20 @@ const knowledge: KnowledgeCard[] = [
   },
   {
     title: "Contact",
-    triggers: ["contact", "email", "reach", "linkedin", "social", "instagram", "facebook", "threads", "message sahil"],
+    triggers: [
+      "contact",
+      "email",
+      "reach",
+      "linkedin",
+      "social",
+      "instagram",
+      "facebook",
+      "threads",
+      "message sahil",
+      "whatsapp",
+    ],
     answer:
-      "The best way to contact Sahil is by email or LinkedIn. Email: sahilaharia@gmail.com. LinkedIn: https://www.linkedin.com/in/sahilharia92/. You can also follow him on Instagram: https://www.instagram.com/sahil.haria, Twitter/X: https://x.com/sahilharia92, Threads: https://www.threads.com/@sahil.haria, and Facebook: https://www.facebook.com/sahil.haria/. For collaboration, a useful subject line is: Potential Collaboration — [Your Project Name].",
+      "The best way to contact Sahil is by email, LinkedIn, or WhatsApp. Email: sahilaharia@gmail.com. LinkedIn: https://www.linkedin.com/in/sahilharia92/. The chat has a WhatsApp handoff for direct follow-up. You can also follow him on Instagram: https://www.instagram.com/sahil.haria, Twitter/X: https://x.com/sahilharia92, Threads: https://www.threads.com/@sahil.haria, and Facebook: https://www.facebook.com/sahil.haria/. For collaboration, a useful subject line is: Potential Collaboration — [Your Project Name].",
     prompts: ["Draft an outreach note", "What should I include in my note?"],
   },
 ];
@@ -368,7 +382,7 @@ function getReply(input: string): ChatMessage {
     return {
       role: "assistant",
       content:
-        "I can’t share Sahil’s phone number here. The best public contact paths are email and LinkedIn: sahilaharia@gmail.com and https://www.linkedin.com/in/sahilharia92/. If it is a serious collaboration or manufacturing inquiry, include a short note with context, stage, and what you’re hoping to explore.",
+        "You can reach Sahil through email, LinkedIn, or WhatsApp. Email: sahilaharia@gmail.com. LinkedIn: https://www.linkedin.com/in/sahilharia92/. WhatsApp is available from the chat button below for direct follow-up when the conversation needs Sahil.",
       prompts: ["Draft an outreach note", "What should I include?"],
     };
   }
@@ -599,31 +613,31 @@ export default function PortfolioChat() {
   const lastPrompts = messages[messages.length - 1]?.prompts ?? featuredPrompts.slice(0, 4);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end sm:bottom-5 sm:right-5">
+    <div className="fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] z-50 flex flex-col items-end sm:inset-x-auto sm:right-5 sm:bottom-5">
       {isOpen ? (
-        <div className="mb-4 flex h-[min(760px,calc(100vh-6.5rem))] w-[calc(100vw-2rem)] max-w-[460px] flex-col overflow-hidden rounded-[28px] border border-white/12 bg-[#121212]/96 text-white shadow-2xl shadow-black/50 backdrop-blur-2xl">
-          <div className="border-b border-white/10 px-5 py-4">
+        <div className="mb-3 flex h-[min(82dvh,720px)] min-h-0 w-full flex-col overflow-hidden rounded-[24px] border border-white/12 bg-[#121212]/96 text-white shadow-2xl shadow-black/50 backdrop-blur-2xl sm:mb-4 sm:h-[min(760px,calc(100vh-6.5rem))] sm:w-[calc(100vw-2rem)] sm:max-w-[460px] sm:rounded-[28px]">
+          <div className="shrink-0 border-b border-white/10 px-4 py-3 sm:px-5 sm:py-4">
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-black">
-                  <Sparkles className="h-5 w-5" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white text-black sm:h-11 sm:w-11">
+                  <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
                 </div>
                 <div>
-                  <p className="text-base font-semibold">Ask about Sahil</p>
-                  <p className="text-xs text-white/45">Thoughtful portfolio guide</p>
+                  <p className="text-sm font-semibold sm:text-base">Ask about Sahil</p>
+                  <p className="text-[11px] text-white/45 sm:text-xs">Thoughtful portfolio guide</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+                className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                 aria-label="Close chat"
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5" />
               </button>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 gap-2">
+            <div className="mt-4 hidden grid-cols-2 gap-2 sm:grid">
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2">
                 <div className="mb-1 flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-white/35">
                   <BriefcaseBusiness className="h-3 w-3" />
@@ -641,12 +655,12 @@ export default function PortfolioChat() {
             </div>
           </div>
 
-          <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+          <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain px-3 py-3 sm:px-4 sm:py-4">
             {messages.map((message, index) => (
               <div key={`${message.role}-${index}`}>
                 <div
                   data-chat-message={message.role}
-                  className={`max-w-[90%] whitespace-pre-line rounded-3xl px-4 py-3 text-[15px] leading-relaxed ${
+                  className={`max-w-[92%] whitespace-pre-line rounded-3xl px-4 py-3 text-sm leading-relaxed sm:max-w-[90%] sm:text-[15px] ${
                     message.role === "visitor"
                       ? "ml-auto bg-white text-black"
                       : "mr-auto border border-white/8 bg-white/[0.06] text-white/78"
@@ -659,15 +673,15 @@ export default function PortfolioChat() {
             {isThinking ? <TypingIndicator /> : null}
           </div>
 
-          <div className="border-t border-white/10 px-4 py-4">
-            <div className="mb-3 flex gap-2 overflow-x-auto pb-1">
+          <div className="shrink-0 border-t border-white/10 px-3 py-3 sm:px-4 sm:py-4">
+            <div className="mb-3 flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {lastPrompts.slice(0, 4).map((prompt) => (
                 <button
                   key={prompt}
                   type="button"
                   onClick={() => ask(prompt)}
                   disabled={isThinking}
-                  className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-xs text-white/70 transition-colors hover:bg-white/10 hover:text-white disabled:opacity-45"
+                  className="shrink-0 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-[11px] text-white/70 transition-colors hover:bg-white/10 hover:text-white disabled:opacity-45 sm:px-3.5 sm:text-xs"
                 >
                   {prompt}
                 </button>
@@ -680,12 +694,12 @@ export default function PortfolioChat() {
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask about Mirar, Jagruti, growth, collaboration..."
-                className="h-12 min-w-0 flex-1 rounded-full border border-white/10 bg-black/35 px-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-white/30"
+                className="h-11 min-w-0 flex-1 rounded-full border border-white/10 bg-black/35 px-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-white/30 sm:h-12"
               />
               <button
                 type="submit"
                 disabled={isThinking || !input.trim()}
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-black transition-colors hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-black transition-colors hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-50 sm:h-12 sm:w-12"
                 aria-label="Send question"
               >
                 <Send className="h-4 w-4" />
@@ -694,8 +708,18 @@ export default function PortfolioChat() {
 
             <div className="mt-3 grid grid-cols-2 gap-2">
               <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="col-span-2 inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2.5 text-sm font-medium text-emerald-200 transition-colors hover:bg-emerald-400/15 sm:py-3"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                Continue on WhatsApp
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <a
                 href={`mailto:${email}?subject=Potential%20Collaboration%20%E2%80%94%20`}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-200 transition-colors hover:bg-emerald-400/15"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white sm:py-3"
               >
                 <Mail className="h-3.5 w-3.5" />
                 Email Sahil
@@ -704,7 +728,7 @@ export default function PortfolioChat() {
                 href={linkedinUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white sm:py-3"
               >
                 LinkedIn
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -720,12 +744,12 @@ export default function PortfolioChat() {
           setIsOpen(true);
           setTimeout(() => inputRef.current?.focus(), 50);
         }}
-        className="group inline-flex h-14 items-center gap-3 rounded-full border border-white/12 bg-white px-5 text-sm font-semibold text-black shadow-xl shadow-black/30 transition-transform hover:scale-[1.02]"
+        className="group inline-flex h-14 w-14 items-center justify-center gap-3 rounded-full border border-white/12 bg-white px-0 text-sm font-semibold text-black shadow-xl shadow-black/30 transition-transform hover:scale-[1.02] sm:w-auto sm:px-5"
         aria-label="Open portfolio chat"
       >
         <MessageCircle className="h-5 w-5" />
-        Ask
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        <span className="hidden sm:inline">Ask</span>
+        <ArrowRight className="hidden h-4 w-4 transition-transform group-hover:translate-x-0.5 sm:block" />
       </button>
     </div>
   );
