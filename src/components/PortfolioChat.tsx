@@ -6,6 +6,7 @@ import {
   BriefcaseBusiness,
   ExternalLink,
   GraduationCap,
+  Mail,
   MessageCircle,
   Send,
   Sparkles,
@@ -25,40 +26,126 @@ type KnowledgeCard = {
   prompts?: string[];
 };
 
-const whatsappUrl =
-  "https://wa.me/15107665873?text=Hi%20Sahil%2C%20I%20came%20from%20your%20portfolio%20website%20and%20wanted%20to%20connect.";
+const email = "sahilaharia@gmail.com";
+const linkedinUrl = "https://www.linkedin.com/in/sahilharia92/";
 
 const quickPrompts = [
-  "How many years of experience?",
-  "How long was Sahil in the US?",
   "What is Sahil building now?",
-  "What roles fit Sahil?",
-  "What is Mirar?",
-  "Summarize Sahil in 30 seconds",
+  "Tell me about Mirar",
+  "Tell me about Jagruti",
+  "View Sahil’s experience",
+  "Explore collaboration opportunities",
+  "Ask about growth systems",
+  "Contact Sahil",
+];
+
+const collaborationPrompts = [
+  "What are you trying to build or improve?",
+  "Is this product, growth, manufacturing, content, AI, or something else?",
+  "What stage is it at: idea, early build, live project, or scaling?",
 ];
 
 const knowledge: KnowledgeCard[] = [
   {
-    title: "Experience",
+    title: "Who is Sahil",
+    triggers: ["who is sahil", "about sahil", "bio", "profile", "summary", "introduce sahil"],
+    answer:
+      "Sahil Haria is a Mumbai-based founder, PhD holder, growth strategist, product thinker, and endurance builder with 15+ years of India and US experience across SaaS, apps, restaurants, nonprofits, e-commerce, consumer brands, board games, manufacturing, and self-reflection products. His current work is anchored in two main pillars: Mirar and Jagruti Group / Jagruti Steel. Jugaadors and Sociato are supporting ventures in that wider world.",
+    prompts: ["What is Sahil building now?", "What is his professional background?"],
+  },
+  {
+    title: "Current builds",
     triggers: [
-      "experience",
-      "years",
-      "career",
-      "work history",
-      "background",
-      "resume",
-      "cv",
-      "total",
+      "building now",
+      "currently building",
+      "current work",
+      "current focus",
+      "ventures",
+      "priority",
+      "main focus",
+      "what is sahil building",
     ],
     answer:
-      "Sahil has 15+ years of experience across India and the US. His work spans founder/operator roles, product marketing, digital growth, SaaS, apps, restaurant groups, nonprofit/STEAM education, e-commerce, consumer brands, and manufacturing-led ventures.",
-    prompts: ["What companies has he worked with?", "What is his strongest skill mix?"],
+      "Sahil’s current work is anchored in two main pillars. Mirar is being built as an emotional and mental hygiene system for daily self-reflection. Jagruti Group / Jagruti Steel connects him to stainless steel manufacturing, OEM production, B2B growth, and legacy business modernization. He is also involved with Jugaadors, a board game company focused on modern Indian storytelling for global audiences, and Sociato, his digital marketing and creative execution foundation.",
+    prompts: ["Tell me about Mirar", "Tell me about Jagruti", "How can we collaborate?"],
+  },
+  {
+    title: "Mirar",
+    triggers: [
+      "mirar",
+      "mental hygiene",
+      "emotional hygiene",
+      "self reflection",
+      "reflection",
+      "alignment",
+      "identity",
+      "inner clarity",
+      "daily check in",
+      "therapy",
+    ],
+    answer:
+      "Mirar is being built as an emotional and mental hygiene system for daily self-reflection. It is a tech-enabled platform for founders, professionals, and people navigating transition, ambition, identity shifts, and internal misalignment. The idea is simple: a small reflective check-in to help people notice where their actions, emotions, and inner direction may be drifting apart. Mirar is not therapy, not advice, not coaching, and not a quick fix. It is a small daily mirror for the inner self. Website: https://www.mirar.life. You can also reach Sahil at sahilaharia@gmail.com for thoughtful conversations around Mirar, product, or collaboration.",
+    prompts: ["Who is Mirar for?", "How does Mirar connect to AI?", "Can I discuss Mirar with Sahil?"],
+  },
+  {
+    title: "Jagruti",
+    triggers: [
+      "jagruti",
+      "jagruti steel",
+      "jagruti group",
+      "manufacturing",
+      "oem",
+      "stainless",
+      "steel",
+      "cookware",
+      "hospitality",
+      "roundware",
+      "factory",
+      "private label",
+      "b2b",
+    ],
+    answer:
+      "Jagruti Group / Jagruti Steel connects Sahil to his family-linked stainless steel and metal manufacturing business in Mumbai. The business has deep roots in OEM stainless steel manufacturing, especially roundware and precision-formed products such as bread baskets, measuring bowls, food covers, trays, dhokla plates, idli plates, lids, and custom stainless steel components. For Sahil, Jagruti is not just manufacturing. It is about trust, process, quality, relationships, and modernizing an old-economy business. Website: https://www.jagrutisteels.com. For manufacturing or OEM inquiries, share product details, material requirements, expected quantity, and use case with Sahil at sahilaharia@gmail.com.",
+    prompts: ["What can Jagruti manufacture?", "How should I send a manufacturing inquiry?"],
+  },
+  {
+    title: "Jugaadors",
+    triggers: ["jugaadors", "board game", "board games", "game", "games", "indian storytelling", "tabletop", "culture"],
+    answer:
+      "Jugaadors is a board game company focused on modern Indian storytelling for global audiences. Sahil is Co-Founder & COO, and his work focuses on operations, manufacturing coordination, international go-to-market planning, logistics, and launch execution. Website: https://www.jugaadors.com. I’ll keep this at the company level because unreleased game details, internal launch plans, partner details, costs, or specific product concepts should not be shared here.",
+    prompts: ["How does Jugaadors fit Sahil’s story?", "What else is Sahil building?"],
+  },
+  {
+    title: "Sociato",
+    triggers: ["sociato", "agency", "digital marketing agency", "marketing company", "clients", "creative execution"],
+    answer:
+      "Sociato is Sahil’s digital marketing and creative execution company. It began as an agency in Mumbai and has worked with 60+ clients across technology, fitness, fashion, entertainment, food, consumer goods, and retail. Sociato is Sahil’s foundation in digital growth, campaign execution, web projects, brand communication, client strategy, team management, and creative direction. Website: https://www.sociato.in.",
+    prompts: ["What are Sahil’s growth capabilities?", "Can Sahil help with lead generation?"],
+  },
+  {
+    title: "Professional background",
+    triggers: [
+      "experience",
+      "professional background",
+      "work history",
+      "resume",
+      "career",
+      "companies",
+      "roles",
+      "raft",
+      "back of the house",
+      "chefling",
+      "flock",
+      "grabr",
+    ],
+    answer:
+      "Sahil has 15+ years of professional experience across India and the United States. His past roles include Growth Marketing Director at RAFT in San Jose; Digital and Growth Marketing Manager at Back of the House in San Francisco across 15 restaurant brands and 35 locations; Product and Digital Marketing Manager at Chefling in Sunnyvale; Digital and Product Marketing Specialist at Flock Software in San Francisco; and earlier chapters with Grabr, freelance consulting, and Deltecs InfoTech.",
+    prompts: ["How long was Sahil in the US?", "What proof of work can I see?"],
   },
   {
     title: "US chapter",
     triggers: [
       "usa",
-      "us",
       "united states",
       "america",
       "california",
@@ -67,120 +154,188 @@ const knowledge: KnowledgeCard[] = [
       "berkeley",
       "san jose",
       "sunnyvale",
+      "years in us",
+      "long in us",
+      "years was sahil in us",
     ],
     answer:
       "Sahil spent roughly 8 years in the US, mainly in California. That chapter includes UC Berkeley, Flock in San Francisco, Chefling in Sunnyvale, Back of the House in San Francisco, and RAFT in San Jose.",
     prompts: ["What did he do in San Francisco?", "Tell me about his education"],
   },
   {
-    title: "Current builds",
-    triggers: ["building", "now", "current", "ventures", "founder", "today", "focus"],
-    answer:
-      "Right now Sahil is building across three connected worlds: Mirar, a self-reflection and inner clarity platform; Jagruti, the modernization/growth side of a stainless steel manufacturing legacy; and Jugaadors, a board game venture bringing modern Indian storytelling to global audiences.",
-    prompts: ["What is Mirar?", "What is Jagruti?", "What is Jugaadors?"],
-  },
-  {
-    title: "Mirar",
-    triggers: ["mirar", "mental", "emotional", "hygiene", "reflection", "alignment", "purpose"],
-    answer:
-      "Mirar is Sahil’s current product build: a tech-enabled self-reflection platform for founders and professionals who want to realign with purpose. The idea blends behavioral science, product strategy, and AI-driven insight into a daily emotional and mental hygiene system.",
-    prompts: ["Who is Mirar for?", "How does Mirar connect to AI?"],
-  },
-  {
-    title: "Jagruti",
-    triggers: ["jagruti", "steel", "manufacturing", "factory", "legacy", "oem", "stainless"],
-    answer:
-      "Jagruti connects Sahil to stainless steel manufacturing, family business, OEM production, roundware/cookware, factory operations, and B2B growth. The deeper theme is how legacy industries modernize without losing their roots.",
-    prompts: ["How does Jagruti fit his story?", "What does Sahil know about operations?"],
-  },
-  {
-    title: "Jugaadors",
-    triggers: ["jugaadors", "board", "game", "games", "culture", "storytelling", "amazon", "fba"],
-    answer:
-      "Jugaadors is Sahil’s board game venture built around culture, play, nostalgia, and modern Indian storytelling. He co-founded it and manages operations from manufacturing in India to Amazon FBA and international go-to-market.",
-    prompts: ["What founder skills does that show?", "What is Sahil building now?"],
-  },
-  {
-    title: "Sociato",
-    triggers: ["sociato", "agency", "marketing company", "clients", "team", "digital agency"],
-    answer:
-      "Sociato is Sahil’s digital marketing and creative execution company, started in 2015. He has led a team across marketing, web development, and design, and built a base of 60+ clients across technology, fitness, fashion, entertainment, food, consumer goods, and retail.",
-    prompts: ["What are Sahil’s marketing strengths?", "What industries has he worked in?"],
-  },
-  {
-    title: "Professional roles",
-    triggers: ["company", "companies", "worked", "raft", "back of the house", "chefling", "flock", "grabr"],
-    answer:
-      "Selected roles: Growth Marketing Director at RAFT in San Jose; Digital and Growth Marketing Manager at Back of the House across 15 restaurant brands and 35 locations; Product and Digital Marketing Manager at Chefling in Sunnyvale; Digital and Product Marketing Specialist at Flock in San Francisco; plus earlier work with Grabr, freelance consulting, and Deltecs in Mumbai.",
-    prompts: ["What did he do at Chefling?", "What did he do at Back of the House?"],
-  },
-  {
-    title: "Product marketing",
-    triggers: ["product marketing", "gtm", "go to market", "launch", "positioning", "messaging"],
-    answer:
-      "Sahil’s product marketing work includes positioning, messaging, GTM planning, release marketing, content calendars, website and blog launches, product videos, competitive differentiation, email programs, and campaign execution across SaaS and app environments.",
-    prompts: ["What metrics are on his resume?", "What tools does he know?"],
-  },
-  {
-    title: "Metrics",
-    triggers: ["metric", "metrics", "results", "numbers", "cpi", "traffic", "budget", "clients"],
-    answer:
-      "A few concrete proof points: 60+ clients through Sociato; digital growth across 15 restaurant brands and 35 locations at Back of the House; 30% website traffic lift at Chefling; $25K+ paid media budgets; CPI as low as $0.75 for Android and $1.04 for iOS app downloads.",
-    prompts: ["What roles fit Sahil?", "What are his strongest skills?"],
-  },
-  {
     title: "Education",
-    triggers: ["education", "phd", "doctorate", "mba", "degree", "university", "cumberlands", "campbellsville"],
+    triggers: [
+      "education",
+      "phd",
+      "doctorate",
+      "mba",
+      "degree",
+      "university",
+      "cumberlands",
+      "campbellsville",
+      "berkeley",
+      "academic",
+      "teaching",
+      "speaking",
+    ],
     answer:
-      "Sahil holds a PhD in Business with Strategic Management from University of the Cumberlands, an MBA in Marketing from Campbellsville University, a master’s in project management and entrepreneurship from UC Berkeley, a Master of Commerce from University of Mumbai, an Advanced Digital Marketing certificate, and a Bachelor of Management Studies.",
-    prompts: ["Why Dr. Sahil Haria, PhD?", "What can he teach?"],
+      "Sahil holds a PhD in Business, Strategic Management from University of the Cumberlands; an MBA in Marketing from Campbellsville University; a Master’s in Project Management and Entrepreneurship from UC Berkeley; a Master of Commerce in Marketing from University of Mumbai; a Certificate in Advanced Digital Marketing from Digital Marketing Institute; and a Bachelor of Management Studies from University of Mumbai. This makes him a fit for conversations around strategy, entrepreneurship, marketing, product, growth, and teaching or speaking opportunities.",
+    prompts: ["Can Sahil speak or teach?", "What is his professional background?"],
   },
   {
-    title: "Teaching",
-    triggers: ["teach", "teaching", "professor", "faculty", "lecture", "mentor", "course"],
+    title: "Portfolio",
+    triggers: [
+      "portfolio",
+      "proof of work",
+      "work samples",
+      "campaigns",
+      "creative direction",
+      "video",
+      "social media",
+      "brand channels",
+      "restaurant group",
+    ],
     answer:
-      "Sahil is interested in teaching strategy, entrepreneurship, marketing, and core management subjects. His edge is that he can connect academic strategy with lived founder/operator experience across India and the US.",
-    prompts: ["Tell me about his education", "What is his work experience?"],
+      "Sahil’s portfolio is best understood in categories: growth and digital campaigns; product marketing and positioning; restaurant group digital growth across 15 brands and 35 locations; video and creative direction; social media and brand channels; and founder-led execution across Mirar, Jagruti, Jugaadors, and Sociato. His work spans brands and projects including Flock, Chefling, Wildseed, Delarosa, Beretta, Amano, Drona Platform, Tailor’s Son, Lolinda, El Techo, The Bird, Uno Dos Tacos, Super Duper Burgers, Sociato, SoFit, Grabr, Toppr.com, Little Muffet, Raas, and Caramella.",
+    prompts: ["Tell me about product marketing", "Tell me about video work"],
   },
   {
-    title: "Skills",
-    triggers: ["skills", "tools", "hubspot", "mailchimp", "pardot", "seo", "ads", "asana", "jira"],
+    title: "Growth systems",
+    triggers: [
+      "growth",
+      "lead generation",
+      "lead gen",
+      "crm",
+      "funnel",
+      "outreach",
+      "gtm",
+      "go to market",
+      "digital marketing",
+      "website conversion",
+      "email automation",
+      "whatsapp automation",
+    ],
     answer:
-      "His skill mix includes customer success, management, project management, strategic planning, digital and product marketing, SEO, Google Ads, paid social, email marketing, HubSpot, Mailchimp, Pardot, Zendesk, Sprout Social, Jira, SurveyMonkey, Hootsuite, Asana, Google Workspace, HTML5, CSS, and Photoshop.",
-    prompts: ["What roles fit Sahil?", "What industries has he worked in?"],
+      "Yes. Sahil has deep experience across digital growth, campaign strategy, CRM workflows, funnel design, B2B outreach, content systems, and website conversion. He is especially interested in lead-generation systems that are not just about collecting contacts, but about creating a clearer path from positioning to outreach to follow-up to relationship-building.",
+    prompts: ["Can Sahil help build a website?", "How can we collaborate?"],
+  },
+  {
+    title: "AI systems",
+    triggers: [
+      "ai",
+      "chatbot",
+      "automation",
+      "ai tools",
+      "ai systems",
+      "ai workflow",
+      "reporting",
+      "no code",
+      "low code",
+      "manus",
+      "chatgpt",
+      "claude",
+      "antigravity",
+    ],
+    answer:
+      "Sahil is actively exploring AI-supported systems across reflection, growth, lead generation, content, reporting, and workflows. If you’re building an AI-enabled product, internal system, chatbot, automation layer, or lightweight MVP, it may be worth sharing the idea and seeing where there is alignment.",
+    prompts: ["What kind of AI builds interest Sahil?", "How can we collaborate?"],
+  },
+  {
+    title: "Capabilities",
+    triggers: ["capabilities", "skills", "tools", "platforms", "what can sahil do", "strengths"],
+    answer:
+      "Sahil’s capabilities sit in five groups. Growth & Strategy: growth strategy, GTM planning, product marketing, strategic planning, acquisition, retention, positioning, and competitive analysis. Digital Marketing: SEO, Google Ads, Meta Ads, email, paid acquisition, content calendars, A/B testing, analytics, and KPIs. Product & Systems: messaging, website strategy, funnels, onboarding, journey mapping, product-led growth, AI-supported product thinking, and no-code workflows. Leadership & Operations: team management, client strategy, creative direction, project management, founder operations, vendor coordination, manufacturing coordination, and B2B growth. Tools include HubSpot, Mailchimp, Pardot, Zendesk, Sprout Social, Jira, Asana, Google Workspace, HTML5, CSS, Photoshop, ChatGPT, Claude, Manus, Antigravity, Notion, Google Sheets, Gmail, Calendar, and WhatsApp.",
+    prompts: ["Can Sahil help with lead generation?", "What kind of projects does he take on?"],
   },
   {
     title: "Endurance",
-    triggers: ["ironman", "marathon", "hyrox", "endurance", "ultra", "running", "fitness"],
+    triggers: [
+      "endurance",
+      "ironman",
+      "ironman 70.3",
+      "goa",
+      "hyrox",
+      "marathon",
+      "ultra",
+      "ultramarathon",
+      "running",
+      "cycling",
+      "swimming",
+      "tennis",
+      "discipline",
+    ],
     answer:
-      "Sahil’s endurance story includes one Ironman 70.3, three HYROX events, more than five full marathons, more than ten half marathons, and two ultra marathons. On the site, that chapter is less bragging-rights and more proof of discipline, rhythm, and honesty with the body.",
-    prompts: ["How does endurance connect to his work?", "Summarize Sahil in 30 seconds"],
+      "Endurance has become one of the clearest mirrors in Sahil’s life. Marathons, ultra-distance running, HYROX, swimming, cycling, strength training, and Ironman 70.3 Goa have taught him things that work alone never could. He sees physical challenges as a direct way to study discipline, resistance, alignment, and the gap between intention and action. A line that captures this chapter: “The body has a way of showing the truth before the mind can explain it.”",
+    prompts: ["How does endurance connect to Mirar?", "Summarize Sahil in 30 seconds"],
   },
   {
-    title: "Personality",
-    triggers: ["personality", "tone", "person", "values", "how would sahil answer", "style"],
+    title: "Writing",
+    triggers: [
+      "writing",
+      "personal brand",
+      "content",
+      "linkedin",
+      "threads",
+      "twitter",
+      "instagram",
+      "identity shifts",
+      "returning home",
+      "founder life",
+      "building in public",
+    ],
     answer:
-      "Based on the portfolio, Sahil’s voice should feel reflective, founder-minded, warm, direct, and systems-oriented. He tends to connect growth with inner clarity: build fast, but stay aligned; use AI, but stay human; respect legacy, but modernize with courage.",
-    prompts: ["How can we build together?", "What is Sahil building now?"],
+      "Sahil writes about clarity, alignment, identity shifts, discipline, transitions, founder life, emotional and mental hygiene, returning home after years abroad, building in public, rebuilding from within, endurance, and personal alignment. His writing is not advice. It is a record of what he is learning while rebuilding his own relationship with work, ambition, movement, and purpose.",
+    prompts: ["Where can I follow Sahil?", "Tell me about Mirar"],
   },
   {
-    title: "Fit",
-    triggers: ["hire", "role", "fit", "advisor", "consult", "consulting", "collaborate", "build together"],
+    title: "Collaboration",
+    triggers: [
+      "collaborate",
+      "collaboration",
+      "work with sahil",
+      "hire",
+      "project",
+      "build together",
+      "partner",
+      "advisory",
+      "consulting",
+      "help me build",
+      "interested",
+      "inquiry",
+    ],
     answer:
-      "The best fit is not a generic advisory pitch. Sahil is strongest where growth, product, founder clarity, storytelling, and operating systems meet: AI-era growth projects, product/GTM strategy, brand and campaign systems, founder/operator support, and modernization work for businesses with real legacy.",
-    prompts: ["What should I contact Sahil about?", "What is his strongest skill mix?"],
+      "Sahil is open to thoughtful projects and collaborations where there is clear overlap in values, curiosity, and execution. His current work spans Mirar, Jagruti, Jugaadors, Sociato, growth systems, product thinking, manufacturing, AI-supported workflows, and founder-led storytelling. If you’re exploring something that could benefit from strategy, systems, positioning, outreach, or collaborative building, the best next step is to share what you’re trying to build.",
+    prompts: collaborationPrompts,
+  },
+  {
+    title: "Media speaking teaching",
+    triggers: [
+      "podcast",
+      "media",
+      "interview",
+      "feature",
+      "speaking",
+      "workshop",
+      "teaching",
+      "lecture",
+      "academic",
+      "professor",
+    ],
+    answer:
+      "For media, podcast, speaking, teaching, or academic opportunities, Sahil can speak around building Mirar, emotional and mental hygiene, returning to India after years in the US, founder identity shifts, growth and product strategy, legacy manufacturing modernization, endurance and discipline, AI-supported systems, and building across multiple ventures. The best next step is to email sahilaharia@gmail.com with context, format, audience, and timing.",
+    prompts: ["Draft an outreach note", "Tell me about Sahil’s education"],
   },
   {
     title: "Contact",
-    triggers: ["contact", "connect", "whatsapp", "email", "reach", "call", "meet", "message"],
+    triggers: ["contact", "email", "reach", "linkedin", "social", "instagram", "facebook", "threads", "message sahil"],
     answer:
-      "You can use the form on this site for thoughtful collaboration notes. If it feels time-sensitive or more conversational, use WhatsApp and send a short note about what you’re building, where you’re stuck, and what kind of help or collaboration you’re imagining.",
-    prompts: ["Draft a message to Sahil", "How can we build together?"],
+      "The best way to contact Sahil is by email or LinkedIn. Email: sahilaharia@gmail.com. LinkedIn: https://www.linkedin.com/in/sahilharia92/. You can also follow him on Instagram: https://www.instagram.com/sahil.haria, Twitter/X: https://x.com/sahilharia92, Threads: https://www.threads.com/@sahil.haria, and Facebook: https://www.facebook.com/sahil.haria/. For collaboration, a useful subject line is: Potential Collaboration — [Your Project Name].",
+    prompts: ["Draft an outreach note", "What should I include in my note?"],
   },
 ];
 
 function normalize(text: string) {
-  return text.toLowerCase().replace(/[^a-z0-9+\s]/g, " ");
+  return text.toLowerCase().replace(/[^a-z0-9+\s./:-]/g, " ");
 }
 
 function includesAny(text: string, terms: string[]) {
@@ -197,12 +352,83 @@ function scoreCard(text: string, card: KnowledgeCard) {
 function getReply(input: string): ChatMessage {
   const normalized = normalize(input);
 
-  if (includesAny(normalized, ["30 second", "short summary", "summarize", "who is sahil"])) {
+  if (
+    includesAny(normalized, [
+      "phone number",
+      "mobile number",
+      "contact number",
+      "whatsapp number",
+      "call number",
+      "cell number",
+      "phone",
+      "mobile",
+      "whatsapp",
+    ])
+  ) {
     return {
       role: "assistant",
       content:
-        "Sahil is a founder, PhD, and growth strategist with 15+ years across India and the US. He has built growth systems across SaaS, apps, restaurants, nonprofits, consumer brands, e-commerce, and manufacturing. Today he is building Mirar around self-reflection and AI-era clarity, Jagruti around legacy manufacturing growth, and Jugaadors around modern Indian storytelling.",
-      prompts: ["What is he building now?", "What roles fit Sahil?"],
+        "I can’t share Sahil’s phone number here. The best public contact paths are email and LinkedIn: sahilaharia@gmail.com and https://www.linkedin.com/in/sahilharia92/. If it is a serious collaboration or manufacturing inquiry, include a short note with context, stage, and what you’re hoping to explore.",
+      prompts: ["Draft an outreach note", "What should I include?"],
+    };
+  }
+
+  if (
+    includesAny(normalized, [
+      "price",
+      "pricing",
+      "quote",
+      "cost",
+      "manufacturing timeline",
+      "delivery timeline",
+      "capacity",
+      "can jagruti make any",
+      "guarantee",
+    ])
+  ) {
+    return {
+      role: "assistant",
+      content:
+        "For manufacturing inquiries, Sahil or the Jagruti team can review the requirement and respond based on capability, quantity, specifications, and feasibility. I should not quote pricing, promise capacity, confirm timelines, or guarantee export feasibility here. A useful inquiry includes product details, material, dimensions, quantity, use case, timeline, and any drawings or reference photos.",
+      prompts: ["How should I send a manufacturing inquiry?", "Tell me about Jagruti"],
+    };
+  }
+
+  if (
+    includesAny(normalized, [
+      "unreleased",
+      "secret",
+      "game concept",
+      "gameplay",
+      "launch strategy",
+      "amazon strategy",
+      "manufacturing costs",
+      "partner details",
+    ])
+  ) {
+    return {
+      role: "assistant",
+      content:
+        "I can talk about Jugaadors at the company level: it is a board game company focused on modern Indian storytelling for global audiences. I should not reveal unreleased product details, specific game concepts, internal launch plans, partner details, or manufacturing costs.",
+      prompts: ["What is Jugaadors?", "What else is Sahil building?"],
+    };
+  }
+
+  if (includesAny(normalized, ["therapy", "diagnose", "mental health", "anxiety", "depression", "trauma", "burnout"])) {
+    return {
+      role: "assistant",
+      content:
+        "Mirar should not be framed as therapy, diagnosis, medical advice, coaching, or a replacement for mental health support. Mirar is being built as an emotional and mental hygiene system for daily self-reflection — a small reflective check-in to help people notice drift between actions, emotions, and inner direction.",
+      prompts: ["Tell me about Mirar", "Who is Mirar for?"],
+    };
+  }
+
+  if (includesAny(normalized, ["30 second", "short summary", "summarize", "quick bio", "one paragraph"])) {
+    return {
+      role: "assistant",
+      content:
+        "Sahil Haria is a Mumbai-based founder, PhD holder, growth strategist, product thinker, and endurance builder with 15+ years of India and US experience across SaaS, apps, restaurants, nonprofits, e-commerce, consumer brands, board games, manufacturing, and self-reflection products. He is currently focused on Mirar, an emotional and mental hygiene system, and Jagruti Group / Jagruti Steel, a legacy stainless steel manufacturing business being viewed through a modern growth lens. He is also the Co-Founder of Jugaadors and Sociato, and has completed Ironman 70.3 Goa, HYROX, marathons, and ultra-distance endurance challenges.",
+      prompts: ["What is Sahil building now?", "How can we collaborate?"],
     };
   }
 
@@ -212,7 +438,7 @@ function getReply(input: string): ChatMessage {
     return {
       role: "assistant",
       content:
-        "Roughly 8 years. Sahil’s US chapter runs from his UC Berkeley/project management and entrepreneurship period in 2017 through roles in San Francisco, Sunnyvale, and San Jose until 2025.",
+        "Sahil spent roughly 8 years in the US, mainly in California. That chapter includes UC Berkeley, Flock in San Francisco, Chefling in Sunnyvale, Back of the House in San Francisco, and RAFT in San Jose.",
       prompts: ["What did he do in the US?", "Tell me about his education"],
     };
   }
@@ -223,17 +449,58 @@ function getReply(input: string): ChatMessage {
     return {
       role: "assistant",
       content:
-        "Sahil has 15+ years of total India and US experience. The earliest listed professional chapter starts in 2013, and his founder/operator work with Sociato has continued since 2015 while he also built US growth and product marketing experience from 2017 to 2025.",
-      prompts: ["How long was Sahil in the US?", "What companies has he worked with?"],
+        "Sahil has 15+ years of total India and US experience. His professional chapters run from early marketing work in Mumbai, to US growth and product marketing roles in California, to his current founder work across Mirar, Jagruti, Jugaadors, and Sociato.",
+      prompts: ["How long was Sahil in the US?", "View Sahil’s experience"],
     };
   }
 
-  if (includesAny(normalized, ["draft", "message", "intro note", "whatsapp text"])) {
+  if (
+    includesAny(normalized, [
+      "what kind of projects",
+      "take on",
+      "project types",
+      "open to",
+      "can sahil help",
+      "work on",
+    ])
+  ) {
     return {
       role: "assistant",
       content:
-        "Here’s a simple note: “Hi Sahil, I came across your portfolio and liked how you connect growth, AI, product thinking, and inner clarity. I’m working on [context] and would love to explore whether there’s a way to build or think through this together.”",
-      prompts: ["What should I contact Sahil about?", "How can we build together?"],
+        "Sahil is most interested in projects that involve building something meaningful — whether that is a growth system, product concept, manufacturing opportunity, content engine, reflective digital tool, AI-enabled workflow, or new business experiment. He is not positioning himself as a generic consultant; he is more interested in thoughtful builds, strategic collaboration, and systems that can compound.\n\nIf you are exploring a real collaboration, the useful starting point is: what are you trying to build or improve, what stage is it at, and what kind of support are you looking for?",
+      prompts: collaborationPrompts,
+    };
+  }
+
+  if (
+    includesAny(normalized, [
+      "i want to work",
+      "let's work",
+      "lets work",
+      "can i work",
+      "work with sahil",
+      "interested in working",
+      "collaboration inquiry",
+      "we should talk",
+      "i have a project",
+      "i'm building",
+      "im building",
+    ])
+  ) {
+    return {
+      role: "assistant",
+      content:
+        "Sounds interesting. The best next step is to send Sahil a short note with what you’re building, where it currently stands, and what kind of collaboration you’re exploring. Email: sahilaharia@gmail.com. LinkedIn: https://www.linkedin.com/in/sahilharia92/. Suggested subject: Potential Collaboration — [Your Project Name]. To shape the note, start with: what are you trying to build or improve?",
+      prompts: collaborationPrompts,
+    };
+  }
+
+  if (includesAny(normalized, ["draft", "message", "intro note", "email subject", "outreach note"])) {
+    return {
+      role: "assistant",
+      content:
+        "Here’s a simple note: “Hi Sahil, I came across your portfolio and liked how you connect growth, product, AI-supported systems, manufacturing, and inner clarity. I’m working on [brief context]. It is currently at [idea / early build / live / scaling], and I’m exploring support around [strategy / execution / systems / positioning / outreach / collaboration]. Would be glad to share more if there’s overlap.” Subject: Potential Collaboration — [Your Project Name]. Send it to sahilaharia@gmail.com or connect on LinkedIn: https://www.linkedin.com/in/sahilharia92/.",
+      prompts: ["What should I include in my note?", "What projects interest Sahil?"],
     };
   }
 
@@ -254,7 +521,7 @@ function getReply(input: string): ChatMessage {
     return {
       role: "assistant",
       content:
-        "Try asking me something like: “How many years of experience does Sahil have?”, “What is Mirar?”, “What did he do in the US?”, or “What kind of projects should I contact him about?”",
+        "Try asking me about what Sahil is building now, Mirar, Jagruti or manufacturing, growth systems, collaboration opportunities, his portfolio, endurance, or how to contact him.",
       prompts: quickPrompts.slice(0, 4),
     };
   }
@@ -262,8 +529,8 @@ function getReply(input: string): ChatMessage {
   return {
     role: "assistant",
     content:
-      "I can answer best from Sahil’s resume and portfolio: work history, US experience, education, Mirar, Jagruti, Jugaadors, Sociato, skills, endurance, and collaboration fit. I don’t want to invent personal details that are not in the source material, but I can still help frame a good question or intro note.",
-    prompts: ["What info is missing?", "Draft a message to Sahil"],
+      "I can help you explore Sahil’s current builds, portfolio, systems, collaborations, endurance, or how you might build something together. I’ll stay grounded in public portfolio information and avoid inventing private details or making commitments on Sahil’s behalf. What angle are you curious about: Mirar, Jagruti, growth systems, collaboration, experience, or endurance?",
+    prompts: ["What is Sahil building now?", "Explore collaboration opportunities", "Contact Sahil"],
   };
 }
 
@@ -285,8 +552,8 @@ export default function PortfolioChat() {
     {
       role: "assistant",
       content:
-        "Hi, I’m Sahil’s portfolio guide. Ask me about his resume, US experience, founder chapters, education, skills, endurance story, or what he’s building now.",
-      prompts: ["How many years of experience?", "What is Sahil building now?"],
+        "Hi, I’m here to help you explore Sahil’s work across Mirar, Jagruti, Jugaadors, Sociato, growth strategy, endurance, writing, and collaborations.\n\nWhat would you like to know?",
+      prompts: quickPrompts,
     },
   ]);
 
@@ -317,7 +584,7 @@ export default function PortfolioChat() {
     setInput("");
     setIsThinking(true);
 
-    const delay = Math.min(1400, Math.max(650, trimmed.length * 18));
+    const delay = Math.min(1600, Math.max(700, trimmed.length * 18));
     pendingTimer.current = setTimeout(() => {
       setMessages((current) => [...current, getReply(trimmed)]);
       setIsThinking(false);
@@ -329,12 +596,12 @@ export default function PortfolioChat() {
     ask(input);
   };
 
-  const lastPrompts = messages[messages.length - 1]?.prompts ?? featuredPrompts.slice(0, 3);
+  const lastPrompts = messages[messages.length - 1]?.prompts ?? featuredPrompts.slice(0, 4);
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end sm:bottom-5 sm:right-5">
       {isOpen ? (
-        <div className="mb-4 flex h-[min(720px,calc(100vh-7rem))] w-[calc(100vw-2rem)] max-w-[430px] flex-col overflow-hidden rounded-[28px] border border-white/12 bg-[#121212]/96 text-white shadow-2xl shadow-black/50 backdrop-blur-2xl">
+        <div className="mb-4 flex h-[min(760px,calc(100vh-6.5rem))] w-[calc(100vw-2rem)] max-w-[460px] flex-col overflow-hidden rounded-[28px] border border-white/12 bg-[#121212]/96 text-white shadow-2xl shadow-black/50 backdrop-blur-2xl">
           <div className="border-b border-white/10 px-5 py-4">
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-3">
@@ -343,7 +610,7 @@ export default function PortfolioChat() {
                 </div>
                 <div>
                   <p className="text-base font-semibold">Ask about Sahil</p>
-                  <p className="text-xs text-white/45">Resume + portfolio guide</p>
+                  <p className="text-xs text-white/45">Thoughtful portfolio guide</p>
                 </div>
               </div>
               <button
@@ -360,16 +627,16 @@ export default function PortfolioChat() {
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2">
                 <div className="mb-1 flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-white/35">
                   <BriefcaseBusiness className="h-3 w-3" />
-                  Experience
+                  Current pillars
                 </div>
-                <p className="text-sm font-semibold">15+ years</p>
+                <p className="text-sm font-semibold">Mirar + Jagruti</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2">
                 <div className="mb-1 flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-white/35">
                   <GraduationCap className="h-3 w-3" />
-                  Education
+                  Background
                 </div>
-                <p className="text-sm font-semibold">PhD + MBA</p>
+                <p className="text-sm font-semibold">15+ yrs · PhD</p>
               </div>
             </div>
           </div>
@@ -378,7 +645,8 @@ export default function PortfolioChat() {
             {messages.map((message, index) => (
               <div key={`${message.role}-${index}`}>
                 <div
-                  className={`max-w-[88%] rounded-3xl px-4 py-3 text-[15px] leading-relaxed ${
+                  data-chat-message={message.role}
+                  className={`max-w-[90%] whitespace-pre-line rounded-3xl px-4 py-3 text-[15px] leading-relaxed ${
                     message.role === "visitor"
                       ? "ml-auto bg-white text-black"
                       : "mr-auto border border-white/8 bg-white/[0.06] text-white/78"
@@ -411,7 +679,7 @@ export default function PortfolioChat() {
                 ref={inputRef}
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
-                placeholder="Ask about experience, Mirar, US, skills..."
+                placeholder="Ask about Mirar, Jagruti, growth, collaboration..."
                 className="h-12 min-w-0 flex-1 rounded-full border border-white/10 bg-black/35 px-4 text-sm text-white outline-none placeholder:text-white/30 focus:border-white/30"
               />
               <button
@@ -424,15 +692,24 @@ export default function PortfolioChat() {
               </button>
             </form>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-200 transition-colors hover:bg-emerald-400/15"
-            >
-              Continue on WhatsApp when it needs Sahil
-              <ExternalLink className="h-3.5 w-3.5" />
-            </a>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <a
+                href={`mailto:${email}?subject=Potential%20Collaboration%20%E2%80%94%20`}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm font-medium text-emerald-200 transition-colors hover:bg-emerald-400/15"
+              >
+                <Mail className="h-3.5 w-3.5" />
+                Email Sahil
+              </a>
+              <a
+                href={linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                LinkedIn
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
         </div>
       ) : null}
