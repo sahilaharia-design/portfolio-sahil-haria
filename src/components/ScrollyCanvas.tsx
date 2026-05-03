@@ -118,6 +118,12 @@ export default function ScrollyCanvas() {
         
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-[#121212]/60 pointer-events-none" />
+
+        {/* Designed corner mask for the source-video mark. */}
+        <div className="pointer-events-none absolute bottom-0 right-0 z-[8] h-28 w-48 bg-[radial-gradient(circle_at_100%_100%,rgba(18,18,18,0.96)_0%,rgba(18,18,18,0.88)_38%,rgba(18,18,18,0.48)_68%,transparent_100%)] md:h-36 md:w-64" />
+        <div className="pointer-events-none absolute bottom-5 right-6 z-[9] hidden h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-sm font-semibold text-white/35 backdrop-blur-md md:flex">
+          S
+        </div>
         
         <Overlay progress={scrollYProgress} />
 

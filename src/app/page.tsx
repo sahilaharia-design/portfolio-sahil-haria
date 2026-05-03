@@ -8,6 +8,7 @@ import Capabilities from "@/components/Capabilities";
 import Writing from "@/components/Writing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import PortfolioChat from "@/components/PortfolioChat";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <Contact />
         <Footer />
       </div>
+      <PortfolioChat />
     </main>
   );
 }
