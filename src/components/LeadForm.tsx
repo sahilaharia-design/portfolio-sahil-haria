@@ -10,6 +10,7 @@ const GOOGLE_SCRIPT_URL =
 const initialForm = {
   name: "",
   email: "",
+  phone: "",
   interest: "Build together",
   message: "",
 };
@@ -29,6 +30,7 @@ export default function LeadForm() {
       [
         `Name: ${form.name}`,
         `Email: ${form.email}`,
+        `Phone: ${form.phone}`,
         `Interest: ${form.interest}`,
         "",
         form.message,
@@ -85,7 +87,7 @@ export default function LeadForm() {
         </label>
 
         <label className="block">
-          <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">Email</span>
+          <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">Email *</span>
           <input
             required
             name="email"
@@ -97,6 +99,21 @@ export default function LeadForm() {
           />
         </label>
       </div>
+
+      <label className="mt-4 block">
+        <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">Phone / WhatsApp *</span>
+        <input
+          required
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          value={form.phone}
+          onChange={(event) => updateField("phone", event.target.value)}
+          className="h-12 w-full rounded-xl border border-white/10 bg-black/30 px-4 text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/35"
+          placeholder="+1 510 000 0000"
+        />
+      </label>
 
       <label className="mt-4 block">
         <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">Where should we begin?</span>
