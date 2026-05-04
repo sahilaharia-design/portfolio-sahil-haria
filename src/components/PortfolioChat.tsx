@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowRight,
   BriefcaseBusiness,
+  CalendarDays,
   ExternalLink,
   GraduationCap,
   Mail,
@@ -13,6 +14,7 @@ import {
   Phone,
   X,
 } from "lucide-react";
+import { bookingUrl, email, hasBookingUrl, linkedinUrl, whatsappUrl } from "@/lib/contact-links";
 
 type ChatMessage = {
   role: "assistant" | "visitor";
@@ -27,11 +29,6 @@ type KnowledgeCard = {
   prompts?: string[];
 };
 
-const email = "sahilaharia@gmail.com";
-const linkedinUrl = "https://www.linkedin.com/in/sahilharia92/";
-const whatsappUrl =
-  "https://wa.me/15107665873?text=Hi%20Sahil%2C%20I%20came%20from%20your%20portfolio%20website%20and%20wanted%20to%20connect.";
-
 const quickPrompts = [
   "What is Sahil building now?",
   "Tell me about Mirar",
@@ -39,6 +36,7 @@ const quickPrompts = [
   "View Sahil’s experience",
   "Explore collaboration opportunities",
   "Ask about growth systems",
+  "Book a call",
   "Contact Sahil",
 ];
 
@@ -341,10 +339,15 @@ const knowledge: KnowledgeCard[] = [
       "threads",
       "message sahil",
       "whatsapp",
+      "book a call",
+      "calendar",
+      "schedule",
+      "appointment",
+      "meeting",
     ],
     answer:
-      "The best way to contact Sahil is by email, LinkedIn, or WhatsApp. Email: sahilaharia@gmail.com. LinkedIn: https://www.linkedin.com/in/sahilharia92/. The chat has a WhatsApp handoff for direct follow-up. You can also follow him on Instagram: https://www.instagram.com/sahil.haria, Twitter/X: https://x.com/sahilharia92, Threads: https://www.threads.com/@sahil.haria, and Facebook: https://www.facebook.com/sahil.haria/. For collaboration, a useful subject line is: Potential Collaboration — [Your Project Name].",
-    prompts: ["Draft an outreach note", "What should I include in my note?"],
+      "The best way to contact Sahil is by email, LinkedIn, WhatsApp, or a short booking call when there is a clear reason to talk. Email: sahilaharia@gmail.com. LinkedIn: https://www.linkedin.com/in/sahilharia92/. The chat has WhatsApp and booking handoffs below for direct follow-up. You can also follow him on Instagram: https://www.instagram.com/sahil.haria, Twitter/X: https://x.com/sahilharia92, Threads: https://www.threads.com/@sahil.haria, and Facebook: https://www.facebook.com/sahil.haria/. For collaboration, a useful subject line is: Potential Collaboration — [Your Project Name].",
+    prompts: ["Book a call", "Draft an outreach note", "What should I include in my note?"],
   },
 ];
 
@@ -707,6 +710,16 @@ export default function PortfolioChat() {
             </form>
 
             <div className="mt-3 grid grid-cols-2 gap-2">
+              <a
+                href={bookingUrl}
+                target={hasBookingUrl ? "_blank" : undefined}
+                rel={hasBookingUrl ? "noreferrer" : undefined}
+                className="col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-white/90 sm:py-3"
+              >
+                <CalendarDays className="h-3.5 w-3.5" />
+                Book a Call
+                {hasBookingUrl ? <ExternalLink className="h-3.5 w-3.5" /> : null}
+              </a>
               <a
                 href={whatsappUrl}
                 target="_blank"

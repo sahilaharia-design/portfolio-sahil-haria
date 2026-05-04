@@ -1,4 +1,6 @@
+import { CalendarDays, Mail } from "lucide-react";
 import LeadForm from "./LeadForm";
+import { bookingUrl, hasBookingUrl } from "@/lib/contact-links";
 
 export default function Contact() {
   return (
@@ -34,6 +36,15 @@ export default function Contact() {
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a 
+              href={bookingUrl}
+              target={hasBookingUrl ? "_blank" : undefined}
+              rel={hasBookingUrl ? "noreferrer" : undefined}
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-white/90"
+            >
+              <CalendarDays className="h-4 w-4" />
+              Book a Call
+            </a>
+            <a 
               href="https://www.linkedin.com/in/sahilharia92/" 
               target="_blank"
               rel="noreferrer"
@@ -48,6 +59,13 @@ export default function Contact() {
               className="inline-flex h-12 items-center justify-center rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
             >
               Instagram
+            </a>
+            <a 
+              href="mailto:sahilaharia@gmail.com?subject=Potential%20Collaboration%20%E2%80%94%20" 
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
+            >
+              <Mail className="h-4 w-4" />
+              Email
             </a>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { MotionValue, useMotionValueEvent } from "framer-motion";
+import { bookingUrl, hasBookingUrl } from "@/lib/contact-links";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
@@ -32,7 +33,15 @@ const beats: StoryBeat[] = [
     ),
     cta: (
       <div className="pointer-events-auto mt-10 flex flex-col justify-start gap-3 sm:flex-row md:justify-center">
-        <a href="#connect" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-white/90 md:text-base">
+        <a
+          href={bookingUrl}
+          target={hasBookingUrl ? "_blank" : undefined}
+          rel={hasBookingUrl ? "noreferrer" : undefined}
+          className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-white/90 md:text-base"
+        >
+          Book a Call
+        </a>
+        <a href="#connect" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
           Build Together
         </a>
         <a href="#mirar" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
@@ -129,9 +138,19 @@ const beats: StoryBeat[] = [
       </>
     ),
     cta: (
-      <a href="#connect" className="pointer-events-auto mt-10 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3.5 text-base font-medium text-black transition-colors hover:bg-white/90">
-        Let’s Build Together
-      </a>
+      <div className="pointer-events-auto mt-10 flex flex-col justify-start gap-3 sm:flex-row md:justify-center">
+        <a
+          href={bookingUrl}
+          target={hasBookingUrl ? "_blank" : undefined}
+          rel={hasBookingUrl ? "noreferrer" : undefined}
+          className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3.5 text-base font-medium text-black transition-colors hover:bg-white/90"
+        >
+          Book a Call
+        </a>
+        <a href="#connect" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-7 py-3.5 text-base font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+          Let’s Build Together
+        </a>
+      </div>
     ),
   },
 ];
