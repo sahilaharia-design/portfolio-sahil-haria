@@ -11,12 +11,14 @@ const initialForm = {
   name: "",
   email: "",
   phone: "",
+  website: "",
   interest: "Build together",
   message: "",
 };
 
 export default function LeadForm() {
   const [form, setForm] = useState(initialForm);
+  const [startedAt, setStartedAt] = useState(() => Date.now());
   const [state, setState] = useState<FormState>("idle");
   const [feedback, setFeedback] = useState("");
 
@@ -45,6 +47,20 @@ export default function LeadForm() {
     setState("sending");
     setFeedback("");
 
+    if (form.website.trim()) {
+      setState("sent");
+      setFeedback("Thanks. Your note is in. I’ll get back to you soon.");
+      setForm(initialForm);
+      setStartedAt(Date.now());
+      return;
+    }
+
+    if (Date.now() - startedAt < 2500) {
+      setState("idle");
+      setFeedback("Give it one more second, then send again.");
+      return;
+    }
+
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
@@ -54,6 +70,7 @@ export default function LeadForm() {
         },
         body: JSON.stringify({
           ...form,
+          formStartedAt: new Date(startedAt).toISOString(),
           submittedAt: new Date().toISOString(),
           page: typeof window !== "undefined" ? window.location.href : "",
           source: "sahilharia.com",
@@ -63,6 +80,7 @@ export default function LeadForm() {
       setState("sent");
       setFeedback("Thanks. Your note is in. I’ll get back to you soon.");
       setForm(initialForm);
+      setStartedAt(Date.now());
       return;
     } catch {
       setState("fallback");
@@ -73,6 +91,17 @@ export default function LeadForm() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:p-8 text-left">
+      <label className="sr-only" aria-hidden="true">
+        Website
+        <input
+          tabIndex={-1}
+          name="website"
+          autoComplete="off"
+          value={form.website}
+          onChange={(event) => updateField("website", event.target.value)}
+        />
+      </label>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <label className="block">
           <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">Name</span>
@@ -101,7 +130,7 @@ export default function LeadForm() {
       </div>
 
       <label className="mt-4 block">
-        <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">Phone / WhatsApp *</span>
+        <span className="mb-2 block text-xs font-medium uppercase tracking-widest text-white/45">WhatsApp / Phone *</span>
         <input
           required
           name="phone"
@@ -111,7 +140,7 @@ export default function LeadForm() {
           value={form.phone}
           onChange={(event) => updateField("phone", event.target.value)}
           className="h-12 w-full rounded-xl border border-white/10 bg-black/30 px-4 text-white outline-none transition-colors placeholder:text-white/25 focus:border-white/35"
-          placeholder="+1 510 000 0000"
+          placeholder="WhatsApp / phone number"
         />
       </label>
 

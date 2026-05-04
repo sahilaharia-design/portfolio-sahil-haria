@@ -4,6 +4,8 @@ type LeadPayload = {
   name?: string;
   email?: string;
   phone?: string;
+  website?: string;
+  formStartedAt?: string;
   interest?: string;
   message?: string;
   page?: string;
@@ -13,6 +15,11 @@ const required = ["name", "email", "phone", "message"] as const;
 
 export async function POST(request: NextRequest) {
   const payload = (await request.json()) as LeadPayload;
+
+  if (payload.website?.trim()) {
+    return NextResponse.json({ ok: true, skipped: "spam" });
+  }
+
   const missing = required.filter((field) => !payload[field]?.trim());
 
   if (missing.length > 0) {
@@ -20,6 +27,21 @@ export async function POST(request: NextRequest) {
       { ok: false, error: `Missing required fields: ${missing.join(", ")}` },
       { status: 400 },
     );
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email || "")) {
+    return NextResponse.json({ ok: false, error: "Invalid email." }, { status: 400 });
+  }
+
+  if ((payload.phone || "").replace(/\D/g, "").length < 7) {
+    return NextResponse.json({ ok: false, error: "Invalid phone." }, { status: 400 });
+  }
+
+  if (payload.formStartedAt) {
+    const startedAt = Date.parse(payload.formStartedAt);
+    if (Number.isFinite(startedAt) && Date.now() - startedAt < 2500) {
+      return NextResponse.json({ ok: true, skipped: "too-fast" });
+    }
   }
 
   const webhookUrl = process.env.LEAD_WEBHOOK_URL;
