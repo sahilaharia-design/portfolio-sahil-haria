@@ -37,17 +37,17 @@ const beats: StoryBeat[] = [
           href={bookingUrl}
           target={hasBookingUrl ? "_blank" : undefined}
           rel={hasBookingUrl ? "noreferrer" : undefined}
-          className="col-span-2 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-white/90 sm:col-auto md:text-base"
+          className="premium-cta col-span-2 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black shadow-2xl shadow-white/10 transition-all hover:-translate-y-0.5 hover:bg-white/90 sm:col-auto md:text-base"
         >
           Book a Call
         </a>
-        <a href="#connect" className="col-span-2 inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:col-auto md:text-base">
+        <a href="#connect" className="col-span-2 inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/20 sm:col-auto md:text-base">
           Build Together
         </a>
-        <a href="#mirar" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:px-6 md:text-base">
+        <a href="#mirar" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/20 sm:px-6 md:text-base">
           Explore Mirar
         </a>
-        <a href="#jagruti" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:px-6 md:text-base">
+        <a href="#jagruti" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/20 sm:px-6 md:text-base">
           Explore Jagruti
         </a>
         <a href="#focus" className="col-span-2 inline-flex min-h-10 items-center justify-center rounded-full px-3 py-2 text-center text-sm font-medium text-white/75 transition-colors hover:text-white sm:col-auto sm:min-h-12 sm:py-3 md:text-base">
@@ -191,7 +191,7 @@ export default function Overlay({ progress }: OverlayProps) {
             }`}
           >
             <div className="mt-16 max-w-5xl sm:mt-20 md:mt-0">
-              <h1 className="text-[2.45rem] font-bold leading-[1.02] tracking-tight text-white drop-shadow-2xl sm:text-5xl md:text-7xl">
+              <h1 className={`text-[2.45rem] font-bold leading-[1.02] tracking-tight drop-shadow-2xl sm:text-5xl md:text-7xl ${beat.id === "opening" ? "hero-title-sheen" : "text-white"}`}>
                 {beat.title}
               </h1>
               {beat.body ? (

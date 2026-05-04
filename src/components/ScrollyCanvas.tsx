@@ -118,10 +118,12 @@ export default function ScrollyCanvas() {
         
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-[#121212]/60 pointer-events-none" />
+        <div className="hero-aura pointer-events-none absolute left-1/2 top-[45%] h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,211,252,0.18)_0%,rgba(110,231,183,0.10)_32%,transparent_68%)] blur-2xl md:h-[44rem] md:w-[44rem]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-[linear-gradient(180deg,rgba(255,255,255,0.07),transparent)]" />
 
         {/* Designed corner mask for the source-video mark. */}
         <div className="pointer-events-none absolute bottom-0 right-0 z-[8] h-28 w-48 bg-[radial-gradient(circle_at_100%_100%,rgba(18,18,18,0.96)_0%,rgba(18,18,18,0.88)_38%,rgba(18,18,18,0.48)_68%,transparent_100%)] md:h-36 md:w-64" />
-        <div className="pointer-events-none absolute bottom-5 right-6 z-[9] hidden h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-sm font-semibold text-white/35 backdrop-blur-md md:flex">
+        <div className="pointer-events-none absolute bottom-5 right-6 z-[9] hidden h-9 w-9 animate-[float-slow_6s_ease-in-out_infinite] items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-sm font-semibold text-white/35 backdrop-blur-md md:flex">
           S
         </div>
         

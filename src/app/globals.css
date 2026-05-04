@@ -70,6 +70,37 @@ html {
   }
 }
 
+@keyframes hero-sheen {
+  0% {
+    background-position: 180% center;
+  }
+  100% {
+    background-position: -180% center;
+  }
+}
+
+@keyframes button-shine {
+  0% {
+    transform: translateX(-140%) skewX(-18deg);
+  }
+  45%,
+  100% {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+
+@keyframes breathe-glow {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.08);
+  }
+}
+
 .premium-grid {
   background-image:
     linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
@@ -100,4 +131,32 @@ html {
 
 .premium-card:hover::before {
   opacity: 1;
+}
+
+.hero-title-sheen {
+  background: linear-gradient(100deg, #ffffff 0%, #ffffff 36%, #bfe8ff 47%, #d5fff0 55%, #ffffff 68%, #ffffff 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: hero-sheen 7s ease-in-out infinite;
+}
+
+.premium-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-cta::after {
+  content: "";
+  position: absolute;
+  inset: -30% auto -30% 0;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.42), transparent);
+  animation: button-shine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-aura {
+  animation: breathe-glow 6s ease-in-out infinite;
 }
