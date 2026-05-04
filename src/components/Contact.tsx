@@ -1,4 +1,4 @@
-import { CalendarDays, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import LeadForm from "./LeadForm";
 import { bookingUrl, hasBookingUrl } from "@/lib/contact-links";
 
@@ -34,21 +34,20 @@ export default function Contact() {
             <p className="text-white/50 text-sm tracking-widest uppercase mt-2">Mumbai, India</p>
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a 
               href={bookingUrl}
               target={hasBookingUrl ? "_blank" : undefined}
               rel={hasBookingUrl ? "noreferrer" : undefined}
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-medium text-black transition-colors hover:bg-white/90"
+              className="inline-flex h-12 min-w-[144px] items-center justify-center whitespace-nowrap rounded-full bg-white px-7 text-sm font-semibold text-black transition-colors hover:bg-white/90"
             >
-              <CalendarDays className="h-4 w-4" />
               Book a Call
             </a>
             <a 
               href="https://www.linkedin.com/in/sahilharia92/" 
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
+              className="inline-flex h-12 min-w-[128px] items-center justify-center whitespace-nowrap rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
             >
               LinkedIn
             </a>
@@ -56,13 +55,13 @@ export default function Contact() {
               href="https://www.instagram.com/sahil.haria" 
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
+              className="inline-flex h-12 min-w-[128px] items-center justify-center whitespace-nowrap rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
             >
               Instagram
             </a>
             <a 
               href="mailto:sahilaharia@gmail.com?subject=Potential%20Collaboration%20%E2%80%94%20" 
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
+              className="inline-flex h-12 min-w-[128px] items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
             >
               <Mail className="h-4 w-4" />
               Email
