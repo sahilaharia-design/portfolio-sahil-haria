@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const achievements = [
   "More than five full marathons",
   "More than ten half marathons",
@@ -45,10 +47,12 @@ export default function Endurance() {
         {/* Right Side: Image & Tags */}
         <div className="w-full md:w-1/2">
           <div className="relative rounded-3xl overflow-hidden aspect-[3/4] mb-10 border border-white/10 bg-white/[0.03]">
-            <img 
+            <Image
               src="/ironman-endurance.jpg" 
               alt="Sahil Haria during an Ironman 70.3 race" 
-              className="w-full h-full object-cover object-[50%_38%] transition-transform duration-1000 scale-[1.01] hover:scale-100"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover object-[50%_38%] transition-transform duration-1000 scale-[1.01] hover:scale-100"
             />
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/35 to-transparent" />
             
