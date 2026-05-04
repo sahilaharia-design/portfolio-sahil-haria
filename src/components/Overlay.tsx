@@ -32,25 +32,25 @@ const beats: StoryBeat[] = [
       </>
     ),
     cta: (
-      <div className="pointer-events-auto mt-10 flex flex-col justify-start gap-3 sm:flex-row md:justify-center">
+      <div className="pointer-events-auto mt-7 grid w-full max-w-[36rem] grid-cols-2 gap-2.5 sm:mt-10 sm:flex sm:max-w-none sm:flex-row md:justify-center md:gap-3">
         <a
           href={bookingUrl}
           target={hasBookingUrl ? "_blank" : undefined}
           rel={hasBookingUrl ? "noreferrer" : undefined}
-          className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-white/90 md:text-base"
+          className="col-span-2 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-white/90 sm:col-auto md:text-base"
         >
           Book a Call
         </a>
-        <a href="#connect" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
+        <a href="#connect" className="col-span-2 inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:col-auto md:text-base">
           Build Together
         </a>
-        <a href="#mirar" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
+        <a href="#mirar" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:px-6 md:text-base">
           Explore Mirar
         </a>
-        <a href="#jagruti" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-6 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:text-base">
+        <a href="#jagruti" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-3 text-center text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:px-6 md:text-base">
           Explore Jagruti
         </a>
-        <a href="#focus" className="inline-flex min-h-12 items-center justify-center rounded-full px-3 py-3 text-center text-sm font-medium text-white/75 transition-colors hover:text-white md:text-base">
+        <a href="#focus" className="col-span-2 inline-flex min-h-10 items-center justify-center rounded-full px-3 py-2 text-center text-sm font-medium text-white/75 transition-colors hover:text-white sm:col-auto sm:min-h-12 sm:py-3 md:text-base">
           View Full Journey &rarr;
         </a>
       </div>
@@ -190,12 +190,12 @@ export default function Overlay({ progress }: OverlayProps) {
               isActive ? "visible translate-y-0 opacity-100" : "invisible translate-y-8 opacity-0"
             }`}
           >
-            <div className="mt-24 max-w-5xl md:mt-0">
-              <h1 className="text-3xl font-bold leading-[1.04] tracking-tight text-white drop-shadow-2xl sm:text-5xl md:text-7xl">
+            <div className="mt-16 max-w-5xl sm:mt-20 md:mt-0">
+              <h1 className="text-[2.45rem] font-bold leading-[1.02] tracking-tight text-white drop-shadow-2xl sm:text-5xl md:text-7xl">
                 {beat.title}
               </h1>
               {beat.body ? (
-                <p className="mt-5 max-w-3xl text-base font-light leading-relaxed text-white/80 drop-shadow-lg sm:text-xl md:mt-6 md:text-3xl">
+                <p className="mt-4 max-w-3xl text-base font-light leading-relaxed text-white/80 drop-shadow-lg sm:text-xl md:mt-6 md:text-3xl">
                   {beat.body}
                 </p>
               ) : null}
