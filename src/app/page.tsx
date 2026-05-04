@@ -9,6 +9,7 @@ import Writing from "@/components/Writing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import PortfolioChat from "@/components/PortfolioChat";
+import { ScrollProgress } from "@/components/MotionPrimitives";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -168,6 +169,7 @@ const structuredData = {
 export default function Home() {
   return (
     <main id="journey" className="min-h-screen bg-[#121212] selection:bg-white/20">
+      <ScrollProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

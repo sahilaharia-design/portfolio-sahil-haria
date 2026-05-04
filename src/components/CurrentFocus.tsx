@@ -1,11 +1,22 @@
-import { ArrowUpRight } from "lucide-react";
+"use client";
+
+import { ArrowUpRight, Brain, Factory, Gamepad2, Sparkles } from "lucide-react";
 import Image from "next/image";
+import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
 
 export default function CurrentFocus() {
+  const ventureIcons = {
+    Mirar: Brain,
+    "Jagruti Group": Factory,
+    Jugaadors: Gamepad2,
+    Sociato: Sparkles,
+  };
+
   return (
-    <section id="focus" className="relative w-full bg-[#121212] py-32 px-8 md:px-24">
+    <section id="focus" className="relative w-full overflow-hidden bg-[#121212] py-28 px-6 md:px-24 md:py-32">
+      <div className="premium-grid pointer-events-none absolute inset-x-0 top-16 h-[520px] opacity-25" />
       {/* Intro Text */}
-      <div className="max-w-4xl mx-auto mb-24 text-center md:text-left">
+      <Reveal className="relative z-10 max-w-4xl mx-auto mb-20 text-center md:mb-24 md:text-left">
         <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
           Current Focus
         </h3>
@@ -26,12 +37,12 @@ export default function CurrentFocus() {
             Different worlds on the surface. Underneath, the work returns to one thing: building systems for people, products, and businesses that can grow without losing intention.
           </p>
         </div>
-      </div>
+      </Reveal>
 
       <div className="max-w-6xl mx-auto space-y-8">
         
         {/* PILLAR 1: MIRAR */}
-        <div id="mirar" className="group relative w-full overflow-hidden rounded-3xl bg-white/[0.02] border border-white/10 p-8 md:p-16 transition-all duration-700 hover:bg-white/[0.04]">
+        <Reveal id="mirar" className="premium-card group relative w-full overflow-hidden rounded-3xl bg-white/[0.02] border border-white/10 p-6 md:p-16 transition-all duration-700 hover:bg-white/[0.04] hover:shadow-2xl hover:shadow-purple-950/20">
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
           <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
@@ -41,7 +52,7 @@ export default function CurrentFocus() {
                   <h4 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2">Mirar</h4>
                   <p className="text-purple-400 font-medium tracking-widest uppercase text-sm">Founder & CEO • 2025 – Present</p>
                 </div>
-                <a href="https://www.mirar.life" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:bg-white/10">
+                <a href="https://www.mirar.life" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center border border-white/10 transition-all duration-500 group-hover:scale-110 group-hover:bg-white group-hover:text-black">
                   <ArrowUpRight className="w-6 h-6 text-white" />
                 </a>
               </div>
@@ -67,7 +78,8 @@ export default function CurrentFocus() {
               </div>
             </div>
             
-            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[360px] rounded-2xl overflow-hidden relative border border-white/10 bg-[radial-gradient(circle_at_30%_30%,rgba(196,181,253,0.18),transparent_36%),linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]">
+            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[320px] rounded-2xl overflow-hidden relative border border-white/10 bg-[radial-gradient(circle_at_30%_30%,rgba(196,181,253,0.18),transparent_36%),linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] md:min-h-[360px]">
+              <div className="absolute inset-x-0 top-0 h-px animate-[soft-scan_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
               <div className="absolute inset-0 bg-black/20" />
               <Image
                 src="/mirar-logo.png"
@@ -78,10 +90,10 @@ export default function CurrentFocus() {
               />
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* PILLAR 2: JAGRUTI */}
-        <div id="jagruti" className="group relative w-full overflow-hidden rounded-3xl bg-[#1a1a1a] border border-[#333] p-8 md:p-16 transition-all duration-700 hover:border-[#555]">
+        <Reveal id="jagruti" className="premium-card group relative w-full overflow-hidden rounded-3xl bg-[#1a1a1a] border border-[#333] p-6 md:p-16 transition-all duration-700 hover:border-[#555] hover:shadow-2xl hover:shadow-amber-950/15">
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
           <div className="relative z-10 flex flex-col md:flex-row-reverse gap-12 items-center">
@@ -91,7 +103,7 @@ export default function CurrentFocus() {
                   <h4 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2">Jagruti Group</h4>
                   <p className="text-amber-400/80 font-medium tracking-widest uppercase text-sm">Family Business / Strategic Growth Exploration</p>
                 </div>
-                <a href="https://www.jagrutisteels.com" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-black/20 flex items-center justify-center border border-white/10 transition-transform duration-500 group-hover:scale-110 group-hover:bg-white/10">
+                <a href="https://www.jagrutisteels.com" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full bg-black/20 flex items-center justify-center border border-white/10 transition-all duration-500 group-hover:scale-110 group-hover:bg-white group-hover:text-black">
                   <ArrowUpRight className="w-6 h-6 text-white" />
                 </a>
               </div>
@@ -115,7 +127,8 @@ export default function CurrentFocus() {
               </div>
             </div>
             
-            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[360px] rounded-2xl overflow-hidden relative border border-white/10 bg-[radial-gradient(circle_at_70%_20%,rgba(56,189,248,0.16),transparent_34%),linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.015))]">
+            <div className="w-full md:w-1/3 h-64 md:h-full min-h-[320px] rounded-2xl overflow-hidden relative border border-white/10 bg-[radial-gradient(circle_at_70%_20%,rgba(56,189,248,0.16),transparent_34%),linear-gradient(145deg,rgba(255,255,255,0.08),rgba(255,255,255,0.015))] md:min-h-[360px]">
+              <div className="absolute inset-x-0 top-0 h-px animate-[soft-scan_4.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-sky-200/40 to-transparent" />
               <div className="absolute inset-0 bg-black/20" />
               <Image
                 src="/jagruti-logo.png"
@@ -126,15 +139,19 @@ export default function CurrentFocus() {
               />
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* SUPPORTING VENTURES */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
           
           {/* Jugaadors */}
-          <a href="https://www.jugaadors.com" target="_blank" rel="noreferrer" className="block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all hover:bg-white/[0.06] hover:border-white/20">
+          <StaggerItem>
+          <a href="https://www.jugaadors.com" target="_blank" rel="noreferrer" className="premium-card block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.06] hover:border-white/20">
             <div className="flex items-center justify-between mb-4">
               <div>
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.045]">
+                  <ventureIcons.Jugaadors className="h-5 w-5 text-red-300" />
+                </div>
                 <h4 className="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">Jugaadors</h4>
                 <p className="text-red-400/80 font-medium tracking-widest uppercase text-xs mt-1">Co-Founder & COO • 2023 – Present</p>
               </div>
@@ -149,11 +166,16 @@ export default function CurrentFocus() {
               ))}
             </div>
           </a>
+          </StaggerItem>
 
           {/* Sociato */}
-          <a href="https://www.sociato.in" target="_blank" rel="noreferrer" className="block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all hover:bg-white/[0.06] hover:border-white/20">
+          <StaggerItem>
+          <a href="https://www.sociato.in" target="_blank" rel="noreferrer" className="premium-card block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.06] hover:border-white/20">
             <div className="flex items-center justify-between mb-4">
               <div>
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.045]">
+                  <ventureIcons.Sociato className="h-5 w-5 text-blue-300" />
+                </div>
                 <h4 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Sociato</h4>
                 <p className="text-blue-400/80 font-medium tracking-widest uppercase text-xs mt-1">Co-Founder & COO • 2015 – Present</p>
               </div>
@@ -168,8 +190,9 @@ export default function CurrentFocus() {
               ))}
             </div>
           </a>
+          </StaggerItem>
 
-        </div>
+        </Stagger>
       </div>
     </section>
   );

@@ -1,4 +1,7 @@
-import { GraduationCap, Award } from "lucide-react";
+"use client";
+
+import { Award, GraduationCap } from "lucide-react";
+import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
 
 const degrees = [
   {
@@ -53,26 +56,26 @@ const degrees = [
 
 export default function AcademicFoundation() {
   return (
-    <section className="relative w-full bg-[#121212] py-24 px-8 md:px-24">
+    <section className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
+        <Reveal className="mb-16">
           <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
             Academic Foundation
           </h3>
           <p className="text-lg text-white/60 font-light max-w-2xl">
             My academic path helped me connect practical growth work with deeper strategic thinking.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {degrees.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 transition-all hover:bg-white/[0.04]">
+              <StaggerItem key={idx} className="premium-card group rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.045] md:p-8">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 mt-1">
-                      <Icon className="w-5 h-5 text-white/70" />
+                    <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-1 transition-colors duration-500 group-hover:bg-white/10">
+                      <Icon className="w-5 h-5 text-white/70 transition-transform duration-500 group-hover:scale-110" />
                     </div>
                     <div>
                       <h4 className="text-xl font-bold text-white leading-tight pr-4 mb-2">
@@ -88,10 +91,10 @@ export default function AcademicFoundation() {
                   {item.specialization && <span>{item.specialization}</span>}
                   {item.gpa && <span>{item.gpa}</span>}
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

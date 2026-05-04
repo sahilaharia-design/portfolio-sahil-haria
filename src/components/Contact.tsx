@@ -1,15 +1,23 @@
-import { Mail } from "lucide-react";
+import { Brain, CalendarCheck, Factory, Mail, Sparkles } from "lucide-react";
 import LeadForm from "./LeadForm";
 import { bookingUrl, hasBookingUrl } from "@/lib/contact-links";
+import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
 
 export default function Contact() {
+  const signals = [
+    { label: "Build together", icon: Sparkles },
+    { label: "AI and growth", icon: Brain },
+    { label: "Founder conversations", icon: CalendarCheck },
+    { label: "Legacy modernization", icon: Factory },
+  ];
+
   return (
-    <section id="connect" className="relative w-full overflow-hidden bg-[#121212] py-32 px-8 md:px-24">
+    <section id="connect" className="relative w-full overflow-hidden bg-[#121212] py-32 px-6 md:px-24">
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[128px] pointer-events-none" />
+      <div className="premium-grid pointer-events-none absolute inset-x-0 top-0 h-[520px] opacity-20" />
 
       <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-start">
-        <div>
+        <Reveal>
           <p className="text-sm font-medium uppercase tracking-[0.28em] text-white/35 mb-5">
             Build with me
           </p>
@@ -21,13 +29,16 @@ export default function Contact() {
             I’m interested in thoughtful collaborations around AI-era growth, product systems, emotional clarity, legacy business modernization, and founder journeys that deserve more depth than a quick call.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-            {["Build together", "AI and growth", "Founder conversations", "Legacy modernization"].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/70">
-                {item}
-              </div>
+          <Stagger className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            {signals.map(({ label, icon: Icon }) => (
+              <StaggerItem key={label} className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/70 transition-colors duration-300 hover:bg-white/[0.06] hover:text-white/90">
+                <span className="flex items-center gap-2.5">
+                  <Icon className="h-4 w-4 text-white/45" />
+                  {label}
+                </span>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
           <div>
             <p className="text-white/90 font-medium text-lg">Dr. Sahil Haria, PhD</p>
@@ -67,9 +78,11 @@ export default function Contact() {
               Email
             </a>
           </div>
-        </div>
+        </Reveal>
 
-        <LeadForm />
+        <Reveal delay={0.12}>
+          <LeadForm />
+        </Reveal>
       </div>
     </section>
   );

@@ -1,4 +1,7 @@
-import { Building2, Utensils, Smartphone, MessageSquare } from "lucide-react";
+"use client";
+
+import { Building2, MessageSquare, Smartphone, Utensils } from "lucide-react";
+import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
 
 const experiences = [
   {
@@ -69,29 +72,29 @@ const earlierChapters = [
 
 export default function ProfessionalProof() {
   return (
-    <section className="relative w-full bg-[#121212] py-24 px-8 md:px-24">
+    <section className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
       <div className="max-w-4xl mx-auto">
         
-        <div className="mb-16">
+        <Reveal className="mb-16">
           <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
             Professional Proof
           </h3>
           <p className="text-lg text-white/60 font-light max-w-2xl">
             Before my current founder chapters, I built growth, product, and digital systems across SaaS, apps, restaurants, nonprofits, e-commerce, and consumer brands in India and the United States.
           </p>
-        </div>
+        </Reveal>
 
         <div className="space-y-16">
           {experiences.map((exp, idx) => {
             const Icon = exp.icon;
             return (
-              <div key={idx} className="relative pl-8 md:pl-0">
+              <Reveal key={idx} className="relative pl-8 md:pl-0" delay={idx * 0.04}>
                 
                 {/* Desktop Timeline Line */}
-                <div className="hidden md:block absolute left-[-40px] top-2 bottom-[-64px] w-px bg-white/10" />
+                <div className="hidden md:block absolute left-[-40px] top-2 bottom-[-64px] w-px bg-gradient-to-b from-white/25 via-white/10 to-transparent" />
                 
                 {/* Desktop Icon Node */}
-                <div className="hidden md:flex absolute left-[-54px] top-1 w-7 h-7 rounded-full bg-[#121212] border border-white/20 items-center justify-center z-10">
+                <div className="hidden md:flex absolute left-[-56px] top-0 w-9 h-9 rounded-2xl bg-[#121212] border border-white/20 items-center justify-center z-10 shadow-lg shadow-black/30">
                   <Icon className="w-3.5 h-3.5 text-white/70" />
                 </div>
 
@@ -116,7 +119,7 @@ export default function ProfessionalProof() {
                     <p className="mb-4">{exp.description}</p>
                     <ul className="space-y-2">
                       {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start">
+                        <li key={i} className="flex items-start transition-colors duration-300 hover:text-white/85">
                           <span className="text-white/30 mr-3 mt-1">—</span>
                           <span>{highlight}</span>
                         </li>
@@ -125,21 +128,21 @@ export default function ProfessionalProof() {
                   </div>
                 </div>
 
-              </div>
+              </Reveal>
             );
           })}
 
           {/* Earlier Chapters */}
           <div className="relative pl-8 md:pl-0 pt-8 border-t border-white/5">
             <h4 className="text-lg font-medium text-white mb-6">Earlier Chapters</h4>
-            <div className="space-y-4">
+            <Stagger className="space-y-4">
               {earlierChapters.map((chapter, idx) => (
-                <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-white/50">
+                <StaggerItem key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-white/50">
                   <span className="font-medium text-white/70">{chapter.role} <span className="text-white/30 mx-2">at</span> {chapter.company}</span>
                   <span className="text-xs uppercase tracking-widest mt-1 sm:mt-0">{chapter.year} • {chapter.location}</span>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
         </div>
       </div>
