@@ -50,7 +50,7 @@ const proofOfWork = [
 
 export default function ProofOfWork() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
+    <section id="proof" className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
       <div className="premium-grid pointer-events-none absolute inset-x-0 top-0 h-72 opacity-30" />
       <div className="max-w-7xl mx-auto relative z-10">
         <Reveal className="mb-16">

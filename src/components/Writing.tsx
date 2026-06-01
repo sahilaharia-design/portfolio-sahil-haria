@@ -19,7 +19,7 @@ export default function Writing() {
   ];
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0a0a0a] py-32 px-8 md:px-24 border-t border-white/5">
+    <section id="writing" className="relative w-full overflow-hidden bg-[#0a0a0a] py-32 px-8 md:px-24 border-t border-white/5">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)]" />
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24">
         

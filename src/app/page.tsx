@@ -1,4 +1,6 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
+import SiteNav from "@/components/SiteNav";
+import JourneyMap from "@/components/JourneyMap";
 import CurrentFocus from "@/components/CurrentFocus";
 import ProofOfWork from "@/components/ProofOfWork";
 import ProfessionalProof from "@/components/ProfessionalProof";
@@ -170,6 +172,7 @@ export default function Home() {
   return (
     <main id="journey" className="min-h-screen bg-[#121212] selection:bg-white/20">
       <ScrollProgress />
+      <SiteNav />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -177,6 +180,7 @@ export default function Home() {
       <ScrollyCanvas />
       
       <div className="relative z-20 bg-[#121212]">
+        <JourneyMap />
         <CurrentFocus />
         <ProofOfWork />
         <ProfessionalProof />
