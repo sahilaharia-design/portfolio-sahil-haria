@@ -88,9 +88,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: [
+      { url: "/sahil-avatar.png", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/sahil-avatar.png",
+    apple: "/sahil-avatar.png",
   },
   other: {
     "profile:first_name": "Sahil",
