@@ -65,7 +65,6 @@ const routes = [
 
 const signals = [
   { value: "15+", label: "years across India and the US" },
-  { value: "2", label: "current pillars: Mirar and Jagruti" },
   { value: "60+", label: "clients through Sociato and growth work" },
   { value: "35", label: "restaurant locations managed digitally" },
 ];
@@ -107,7 +106,7 @@ export default function InquiryRoutes() {
             </div>
           </Reveal>
 
-          <Stagger className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          <Stagger className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             {signals.map((signal) => (
               <StaggerItem
                 key={signal.label}
