@@ -1,14 +1,16 @@
-import { Brain, CalendarCheck, Factory, Mail, Sparkles } from "lucide-react";
+import { Bot, Brain, CalendarCheck, Factory, Mail, Megaphone, Mic2, Sparkles } from "lucide-react";
 import LeadForm from "./LeadForm";
 import { bookingUrl, hasBookingUrl } from "@/lib/contact-links";
 import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
 
 export default function Contact() {
   const signals = [
+    { label: "Consulting", icon: Megaphone },
+    { label: "Speaking", icon: Mic2 },
+    { label: "AI systems", icon: Bot },
+    { label: "Manufacturing", icon: Factory },
+    { label: "Mirar conversations", icon: Brain },
     { label: "Build together", icon: Sparkles },
-    { label: "AI and growth", icon: Brain },
-    { label: "Founder conversations", icon: CalendarCheck },
-    { label: "Legacy modernization", icon: Factory },
   ];
 
   return (
@@ -22,11 +24,13 @@ export default function Contact() {
             Build with me
           </p>
           <h3 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-8">
-            Let’s build useful things for a faster world.
+            Let’s turn the right overlap into a useful conversation.
           </h3>
           
           <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed mb-10">
-            I’m interested in thoughtful collaborations around AI-era growth, product systems, emotional clarity, legacy business modernization, and founder journeys that deserve more depth than a quick call.
+            Reach out for consulting, speaking, podcasts, workshops, AI-era growth systems,
+            Mirar, Jagruti manufacturing inquiries, founder conversations, or thoughtful
+            projects that deserve more depth than a generic call.
           </p>
 
           <Stagger className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
@@ -54,7 +58,14 @@ export default function Contact() {
             >
               Book a Call
             </a>
-            <a 
+            <a
+              href="mailto:sahilaharia@gmail.com?subject=Speaking%20or%20Consulting%20Inquiry%20%E2%80%94%20"
+              className="inline-flex h-12 min-w-[128px] items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white/10 px-6 text-sm font-medium text-white transition-colors hover:bg-white/20 border border-white/10"
+            >
+              <CalendarCheck className="h-4 w-4" />
+              Invite
+            </a>
+            <a
               href="https://www.linkedin.com/in/sahilharia92/" 
               target="_blank"
               rel="noreferrer"

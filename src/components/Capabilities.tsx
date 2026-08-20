@@ -17,7 +17,7 @@ const capabilityGroups = [
   {
     title: "Product & Systems",
     icon: Layers,
-    skills: ["Product messaging", "Website strategy", "Product launch planning", "Funnel design", "User onboarding", "Customer journey mapping", "Product-led growth", "AI-supported product thinking", "No-code and automation workflows"]
+    skills: ["Product messaging", "Website strategy", "Product launch planning", "Funnel design", "User onboarding", "Customer journey mapping", "Product-led growth", "AI-supported product thinking", "No-code and automation workflows", "Chatbot and lead-routing systems"]
   },
   {
     title: "Leadership & Operations",
@@ -27,7 +27,7 @@ const capabilityGroups = [
   {
     title: "Tools & Platforms",
     icon: Wrench,
-    skills: ["HubSpot", "Mailchimp", "Pardot", "Zendesk", "Sprout Social", "Jira", "SurveyMonkey", "Hootsuite", "Asana", "Google Workspace", "HTML5", "CSS", "Photoshop"]
+    skills: ["HubSpot", "Mailchimp", "Pardot", "Zendesk", "Sprout Social", "Jira", "SurveyMonkey", "Hootsuite", "Asana", "Google Workspace", "ChatGPT", "Claude", "Manus", "Antigravity", "Notion", "Google Sheets", "WhatsApp", "HTML5", "CSS", "Photoshop"]
   }
 ];
 
@@ -38,7 +38,7 @@ export default function Capabilities() {
       <div className="max-w-7xl mx-auto">
         <Reveal>
           <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-16">
-          Capabilities
+            Capabilities for inquiry, strategy, and execution
           </h3>
         </Reveal>
 

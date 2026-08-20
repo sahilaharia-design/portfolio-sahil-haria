@@ -153,12 +153,16 @@ export default function LeadForm() {
           className="h-12 w-full rounded-xl border border-white/10 bg-black/30 px-4 text-white outline-none transition-colors focus:border-white/35"
         >
           <option>Build together</option>
+          <option>Consulting / growth strategy</option>
+          <option>Speaking / podcast / media</option>
+          <option>Workshop / guest lecture</option>
           <option>AI and growth systems</option>
+          <option>Website / lead-generation system</option>
           <option>Founder conversation</option>
           <option>Legacy business modernization</option>
           <option>Mirar</option>
           <option>Jagruti / manufacturing</option>
-          <option>Speaking or workshop</option>
+          <option>Brand / content collaboration</option>
         </select>
       </label>
 

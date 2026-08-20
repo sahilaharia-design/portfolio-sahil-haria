@@ -1,15 +1,27 @@
 "use client";
 
-import { ArrowRight, Dumbbell, Factory, Map, MessageCircle, Sparkles, Trophy } from "lucide-react";
+import { ArrowRight, Dumbbell, Factory, Map, MessageCircle, Mic2, Sparkles, Trophy } from "lucide-react";
 import { bookingUrl } from "@/lib/contact-links";
 import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
 
 const paths = [
   {
+    label: "Inquiry Routes",
+    href: "#inquiries",
+    icon: Sparkles,
+    detail: "Consulting, speaking, AI, manufacturing",
+  },
+  {
     label: "Current Builds",
     href: "#focus",
-    icon: Sparkles,
+    icon: Factory,
     detail: "Mirar, Jagruti, Jugaadors, Sociato",
+  },
+  {
+    label: "Speaking",
+    href: "#speaking",
+    icon: Mic2,
+    detail: "Podcasts, workshops, panels, lectures",
   },
   {
     label: "Proof",
@@ -50,7 +62,7 @@ export default function JourneyMap() {
             A portfolio should guide, not make people hunt.
           </h2>
           <p className="mt-5 max-w-xl text-base font-light leading-relaxed text-white/58 md:text-lg">
-            Start with what Sahil is building now, scan proof of work, understand the career arc, or jump straight into a conversation.
+            Start with what you need: consulting, speaking, growth systems, manufacturing, Mirar, proof of work, or a direct conversation.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a

@@ -7,10 +7,10 @@ import { bookingUrl } from "@/lib/contact-links";
 
 const navItems = [
   { label: "Focus", href: "#focus" },
+  { label: "Inquiries", href: "#inquiries" },
+  { label: "Speaking", href: "#speaking" },
   { label: "Proof", href: "#proof" },
   { label: "Experience", href: "#experience" },
-  { label: "Endurance", href: "#endurance" },
-  { label: "Writing", href: "#writing" },
   { label: "Connect", href: "#connect" },
 ];
 
@@ -62,7 +62,7 @@ export default function SiteNav() {
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-3.5 py-2 text-sm font-medium text-white/62 transition-colors hover:bg-white/10 hover:text-white"
+                className="rounded-full px-3 py-2 text-sm font-medium text-white/62 transition-colors hover:bg-white/10 hover:text-white"
               >
                 {item.label}
               </a>

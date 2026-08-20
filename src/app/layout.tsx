@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Dr. Sahil Haria, PhD",
   },
   description:
-    "Explore Dr. Sahil Haria, PhD: Mumbai-based founder, growth strategist, product thinker, and endurance builder working across Mirar, Jagruti Steel, Jugaadors, Sociato, AI growth systems, self-reflection, and legacy business modernization.",
+    "Explore Dr. Sahil Haria, PhD: Mumbai-based founder, growth strategist, product thinker, speaker, consultant, and endurance builder working across Mirar, Jagruti Steel, Jugaadors, Sociato, AI growth systems, self-reflection, speaking, workshops, and legacy business modernization.",
   applicationName: "Dr. Sahil Haria, PhD",
   authors: [{ name: "Dr. Sahil Haria, PhD", url: "https://www.sahilharia.com" }],
   creator: "Dr. Sahil Haria, PhD",
@@ -27,6 +27,16 @@ export const metadata: Metadata = {
     "Sahil Haria PhD",
     "Mumbai founder",
     "growth strategist",
+    "growth consultant",
+    "business consultant Mumbai",
+    "speaker on AI and growth",
+    "founder speaker India",
+    "podcast guest founder",
+    "entrepreneurship speaker",
+    "marketing speaker",
+    "AI systems consultant",
+    "lead generation consultant",
+    "workshop facilitator",
     "product marketing",
     "digital growth",
     "AI growth systems",
@@ -40,6 +50,11 @@ export const metadata: Metadata = {
     "stainless steel manufacturing",
     "OEM stainless steel",
     "legacy business modernization",
+    "manufacturing modernization",
+    "consulting opportunities",
+    "speaking opportunities",
+    "podcast interviews",
+    "founder workshops",
     "Jugaadors",
     "Sociato",
     "founder portfolio",
@@ -57,7 +72,7 @@ export const metadata: Metadata = {
     siteName: "Dr. Sahil Haria, PhD",
     title: "Dr. Sahil Haria, PhD | Founder, Growth Strategist & Endurance Builder",
     description:
-      "A portfolio across Mirar, Jagruti Steel, Jugaadors, Sociato, AI-era growth systems, product strategy, endurance, and thoughtful collaboration.",
+      "A portfolio and inquiry hub across Mirar, Jagruti Steel, consulting, speaking, workshops, Jugaadors, Sociato, AI-era growth systems, product strategy, endurance, and thoughtful collaboration.",
     images: [
       {
         url: "/og-image.png",
@@ -73,7 +88,7 @@ export const metadata: Metadata = {
     creator: "@sahilharia92",
     title: "Dr. Sahil Haria, PhD | Founder, Growth Strategist & Endurance Builder",
     description:
-      "Mumbai-based founder building across Mirar, Jagruti Steel, AI growth systems, digital strategy, endurance, and modern collaboration.",
+      "Mumbai-based founder, speaker, consultant, and builder across Mirar, Jagruti Steel, AI growth systems, digital strategy, endurance, and modern collaboration.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -102,6 +117,12 @@ export const metadata: Metadata = {
     "geo.region": "IN-MH",
     "geo.placename": "Mumbai",
     "theme-color": "#121212",
+    "ai:summary":
+      "Dr. Sahil Haria, PhD is a Mumbai-based founder, growth strategist, product thinker, speaker, consultant, and endurance builder focused on Mirar, Jagruti Steel, AI-supported growth systems, consulting, speaking, workshops, manufacturing modernization, and thoughtful collaboration.",
+    "ai:topics":
+      "consulting, speaking, podcasts, workshops, AI systems, growth strategy, lead generation, product marketing, Mirar, Jagruti Steel, stainless steel manufacturing, founder journeys, emotional hygiene, endurance",
+    "llms:summary":
+      "This site explains Sahil Haria's current work, ventures, experience, inquiry paths, speaking topics, collaboration interests, and contact routes.",
   },
 };
 

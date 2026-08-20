@@ -36,6 +36,7 @@ const quickPrompts = [
   "View Sahil’s experience",
   "Explore collaboration opportunities",
   "Ask about growth systems",
+  "Invite Sahil to speak",
   "Book a call",
   "Contact Sahil",
 ];
@@ -199,6 +200,26 @@ const knowledge: KnowledgeCard[] = [
     answer:
       "Sahil’s portfolio is best understood in categories: growth and digital campaigns; product marketing and positioning; restaurant group digital growth across 15 brands and 35 locations; video and creative direction; social media and brand channels; and founder-led execution across Mirar, Jagruti, Jugaadors, and Sociato. His work spans brands and projects including Flock, Chefling, Wildseed, Delarosa, Beretta, Amano, Drona Platform, Tailor’s Son, Lolinda, El Techo, The Bird, Uno Dos Tacos, Super Duper Burgers, Sociato, SoFit, Grabr, Toppr.com, Little Muffet, Raas, and Caramella.",
     prompts: ["Tell me about product marketing", "Tell me about video work"],
+  },
+  {
+    title: "Speaking and consulting",
+    triggers: [
+      "speaking",
+      "speaker",
+      "podcast",
+      "media",
+      "workshop",
+      "guest lecture",
+      "panel",
+      "keynote",
+      "consulting",
+      "consultant",
+      "invite sahil",
+      "book sahil",
+    ],
+    answer:
+      "Yes. Sahil is open to thoughtful speaking, podcast, workshop, guest lecture, panel, media, and consulting conversations. Good-fit topics include AI-supported systems, growth strategy, founder journeys, emotional and mental hygiene, returning to India after years in the US, legacy manufacturing modernization, endurance and discipline, Mirar, Jagruti, and building clearly in fast-moving markets. The best next step is to share the audience, format, topic, date range, and what would make the session useful. Email: sahilaharia@gmail.com or book a call from the site.",
+    prompts: ["What topics can Sahil speak on?", "Book a call", "How can we collaborate?"],
   },
   {
     title: "Growth systems",

@@ -1,12 +1,14 @@
 import ScrollyCanvas from "@/components/ScrollyCanvas";
 import SiteNav from "@/components/SiteNav";
 import JourneyMap from "@/components/JourneyMap";
+import InquiryRoutes from "@/components/InquiryRoutes";
 import CurrentFocus from "@/components/CurrentFocus";
 import ProofOfWork from "@/components/ProofOfWork";
 import ProfessionalProof from "@/components/ProfessionalProof";
 import Endurance from "@/components/Endurance";
 import AcademicFoundation from "@/components/AcademicFoundation";
 import Capabilities from "@/components/Capabilities";
+import SpeakingMedia from "@/components/SpeakingMedia";
 import Writing from "@/components/Writing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -34,7 +36,7 @@ const structuredData = {
       url: "https://www.sahilharia.com",
       name: "Dr. Sahil Haria, PhD | Portfolio",
       description:
-        "Explore Sahil Haria’s current work across Mirar, Jagruti Steel, Jugaadors, Sociato, growth strategy, product marketing, AI-supported systems, endurance, writing, and collaboration.",
+        "Explore Sahil Haria’s current work across Mirar, Jagruti Steel, Jugaadors, Sociato, consulting, speaking, growth strategy, product marketing, AI-supported systems, endurance, writing, and collaboration.",
       about: {
         "@id": "https://www.sahilharia.com/#person",
       },
@@ -89,6 +91,11 @@ const structuredData = {
         "Digital marketing",
         "AI-supported systems",
         "Lead generation systems",
+        "Consulting",
+        "Speaking",
+        "Workshops",
+        "Podcast interviews",
+        "Founder conversations",
         "Self-reflection products",
         "Emotional and mental hygiene",
         "Stainless steel manufacturing",
@@ -142,6 +149,63 @@ const structuredData = {
       ],
     },
     {
+      "@type": "VideoObject",
+      "@id": "https://www.sahilharia.com/#speaking-video",
+      name: "Dr. Sahil Haria speaking feature",
+      description:
+        "A recent YouTube feature showcasing Dr. Sahil Haria’s founder-led perspective on building, growth, systems, and modern work.",
+      embedUrl: "https://www.youtube.com/embed/J4iG1q_CLEk",
+      url: "https://www.youtube.com/watch?v=J4iG1q_CLEk",
+      thumbnailUrl: "https://i.ytimg.com/vi/J4iG1q_CLEk/hqdefault.jpg",
+      inLanguage: "en",
+      creator: {
+        "@id": "https://www.sahilharia.com/#person",
+      },
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://www.sahilharia.com/#inquiry-routes",
+      name: "Ways to work with Dr. Sahil Haria, PhD",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Consulting and Growth Systems",
+            description:
+              "Growth strategy, lead-generation systems, funnel design, CRM workflows, website conversion, and founder-led go-to-market systems.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Speaking, Podcasts, and Workshops",
+            description:
+              "Speaking on AI-supported systems, founder journeys, emotional and mental hygiene, endurance, returning to India, and legacy business modernization.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "AI Workflows and Product Builds",
+            description:
+              "Chatbots, lightweight MVPs, reporting systems, automation layers, product strategy, and practical AI operating systems.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Jagruti Manufacturing Inquiries",
+            description:
+              "OEM stainless steel, cookware, hospitality products, B2B partnerships, private label, export exploration, and legacy modernization conversations.",
+          },
+        },
+      ],
+    },
+    {
       "@type": "BreadcrumbList",
       "@id": "https://www.sahilharia.com/#breadcrumbs",
       itemListElement: [
@@ -154,12 +218,24 @@ const structuredData = {
         {
           "@type": "ListItem",
           position: 2,
+          name: "Inquiry Routes",
+          item: "https://www.sahilharia.com/#inquiries",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
           name: "Current Focus",
           item: "https://www.sahilharia.com/#focus",
         },
         {
           "@type": "ListItem",
-          position: 3,
+          position: 4,
+          name: "Speaking",
+          item: "https://www.sahilharia.com/#speaking",
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
           name: "Connect",
           item: "https://www.sahilharia.com/#connect",
         },
@@ -181,12 +257,14 @@ export default function Home() {
       
       <div className="relative z-20 bg-[#121212]">
         <JourneyMap />
+        <InquiryRoutes />
         <CurrentFocus />
         <ProofOfWork />
         <ProfessionalProof />
         <Endurance />
         <AcademicFoundation />
         <Capabilities />
+        <SpeakingMedia />
         <Writing />
         <Contact />
         <Footer />
