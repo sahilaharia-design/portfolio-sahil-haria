@@ -62,15 +62,16 @@ const inviteChecklist = [
 
 export default function SpeakingMedia() {
   return (
-    <section id="speaking" className="relative overflow-hidden bg-[#101010] px-6 py-24 md:px-24 md:py-32">
+    <section id="speaking" className="cinematic-section relative overflow-hidden bg-[#101010] px-6 py-24 md:px-24 md:py-32">
       <div className="premium-grid pointer-events-none absolute inset-0 opacity-[0.12]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       <div className="pointer-events-none absolute -right-28 top-24 h-96 w-96 rounded-full bg-cyan-300/10 blur-3xl" />
       <div className="pointer-events-none absolute -left-24 bottom-24 h-80 w-80 rounded-full bg-amber-300/10 blur-3xl" />
+      <div className="depth-panel right-[-12rem] top-20 h-72 w-[40rem] rounded-[2.5rem]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-8 lg:grid-cols-[1.03fr_0.97fr] lg:items-stretch">
-          <Reveal className="flex flex-col rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(255,255,255,0.025))] p-6 shadow-2xl shadow-black/25 md:p-10">
+          <Reveal className="glass-band flex flex-col rounded-[2rem] p-6 md:p-10">
             <div>
               <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/55">
                 <Mic2 className="h-4 w-4" />
@@ -121,7 +122,7 @@ export default function SpeakingMedia() {
           </Reveal>
 
           <Reveal delay={0.08} className="flex flex-col gap-4">
-            <div className="premium-card overflow-hidden rounded-[2rem] border border-white/10 bg-black/35 p-3 shadow-2xl shadow-black/30">
+            <div className="premium-card kinetic-card overflow-hidden rounded-[2rem] border border-white/10 bg-black/35 p-3 shadow-2xl shadow-black/30">
               <div className="relative aspect-video overflow-hidden rounded-[1.45rem] bg-black">
                 <iframe
                   className="absolute inset-0 h-full w-full"
@@ -180,7 +181,7 @@ export default function SpeakingMedia() {
         <Stagger className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {talkLanes.map(({ title, icon: Icon, detail }) => (
             <StaggerItem key={title}>
-              <div className="premium-card flex h-full min-h-[250px] flex-col rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-colors duration-500 hover:bg-white/[0.06]">
+              <div className="premium-card kinetic-card flex h-full min-h-[250px] flex-col rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-colors duration-500 hover:bg-white/[0.06]">
                 <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-white/72">
                   <Icon className="h-5 w-5" />
                 </span>
@@ -191,7 +192,7 @@ export default function SpeakingMedia() {
           ))}
         </Stagger>
 
-        <Reveal delay={0.1} className="mt-5 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.02))]">
+        <Reveal delay={0.1} className="glass-band mt-5 overflow-hidden rounded-[2rem]">
           <div className="grid gap-0 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="border-b border-white/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/35">

@@ -19,8 +19,9 @@ export default function Writing() {
   ];
 
   return (
-    <section id="writing" className="relative w-full overflow-hidden bg-[#0a0a0a] py-32 px-8 md:px-24 border-t border-white/5">
+    <section id="writing" className="cinematic-section relative w-full overflow-hidden bg-[#0a0a0a] py-32 px-6 md:px-24 border-t border-white/5">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-48 bg-[linear-gradient(180deg,rgba(255,255,255,0.035),transparent)]" />
+      <div className="depth-panel right-[-14rem] top-12 h-72 w-[42rem] rounded-[2.5rem]" />
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24">
         
         <Reveal className="w-full md:w-1/3 shrink-0">

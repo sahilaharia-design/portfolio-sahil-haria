@@ -14,9 +14,10 @@ export default function Contact() {
   ];
 
   return (
-    <section id="connect" className="relative w-full overflow-hidden bg-[#121212] py-32 px-6 md:px-24">
+    <section id="connect" className="cinematic-section relative w-full overflow-hidden bg-[#121212] py-32 px-6 md:px-24">
       {/* Background Glow */}
       <div className="premium-grid pointer-events-none absolute inset-x-0 top-0 h-[520px] opacity-20" />
+      <div className="depth-panel secondary left-[-12rem] top-16 h-72 w-[40rem] rounded-[2.5rem]" />
 
       <div className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-12 lg:gap-20 items-start">
         <Reveal>

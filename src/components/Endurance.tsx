@@ -14,10 +14,11 @@ const achievements = [
 
 export default function Endurance() {
   return (
-    <section id="endurance" className="relative w-full bg-[#0a0a0a] py-32 px-8 md:px-24 overflow-hidden">
+    <section id="endurance" className="cinematic-section relative w-full bg-[#0a0a0a] py-32 px-6 md:px-24 overflow-hidden">
       {/* Background Texture/Gradient */}
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-rose-900/10 to-transparent pointer-events-none" />
       <div className="pointer-events-none absolute left-8 right-8 top-12 h-px bg-gradient-to-r from-transparent via-rose-200/20 to-transparent" />
+      <div className="depth-panel left-[-14rem] bottom-16 h-72 w-[42rem] rounded-[2.5rem]" />
       
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row gap-16 md:gap-24 items-center">
         
@@ -57,7 +58,7 @@ export default function Endurance() {
 
         {/* Right Side: Image & Tags */}
         <Reveal className="w-full md:w-1/2" delay={0.12}>
-          <div className="premium-card group relative rounded-3xl overflow-hidden aspect-[3/4] mb-10 border border-white/10 bg-white/[0.03] shadow-2xl shadow-black/30">
+          <div className="premium-card kinetic-card group relative rounded-3xl overflow-hidden aspect-[3/4] mb-10 border border-white/10 bg-white/[0.03] shadow-2xl shadow-black/30">
             <Image
               src="/ironman-endurance.jpg" 
               alt="Sahil Haria during an Ironman 70.3 race" 

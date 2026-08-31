@@ -56,7 +56,8 @@ const degrees = [
 
 export default function AcademicFoundation() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
+    <section className="cinematic-section relative w-full overflow-hidden bg-[#121212] py-24 px-6 md:px-24">
+      <div className="premium-grid pointer-events-none absolute inset-x-0 top-0 h-80 opacity-15" />
       <div className="max-w-7xl mx-auto">
         <Reveal className="mb-16">
           <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
@@ -71,7 +72,7 @@ export default function AcademicFoundation() {
           {degrees.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <StaggerItem key={idx} className="premium-card group rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.045] md:p-8">
+              <StaggerItem key={idx} className="premium-card kinetic-card group rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-500 hover:bg-white/[0.045] md:p-8">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-1 transition-colors duration-500 group-hover:bg-white/10">

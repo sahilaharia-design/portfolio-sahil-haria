@@ -71,9 +71,10 @@ const signals = [
 
 export default function InquiryRoutes() {
   return (
-    <section id="inquiries" className="relative overflow-hidden bg-[#121212] px-6 py-24 md:px-24 md:py-32">
+    <section id="inquiries" className="cinematic-section relative overflow-hidden bg-[#121212] px-6 py-24 md:px-24 md:py-32">
       <div className="premium-grid pointer-events-none absolute inset-0 opacity-15" />
       <div className="pointer-events-none absolute left-1/2 top-12 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-300/10 blur-3xl" />
+      <div className="depth-panel right-[-10rem] top-28 h-72 w-[38rem] rounded-[2.5rem]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -110,7 +111,7 @@ export default function InquiryRoutes() {
             {signals.map((signal) => (
               <StaggerItem
                 key={signal.label}
-                className="rounded-3xl border border-white/10 bg-white/[0.035] p-5"
+                className="kinetic-card rounded-3xl border border-white/10 bg-white/[0.035] p-5"
               >
                 <p className="text-3xl font-bold text-white">{signal.value}</p>
                 <p className="mt-2 text-sm leading-snug text-white/48">{signal.label}</p>
@@ -124,7 +125,7 @@ export default function InquiryRoutes() {
             <StaggerItem key={title}>
               <a
                 href={href}
-                className="premium-card group flex min-h-[260px] flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.065]"
+                className="premium-card kinetic-card group flex min-h-[260px] flex-col justify-between rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-500 hover:bg-white/[0.065]"
               >
                 <span>
                   <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-white/75 transition-colors group-hover:bg-white group-hover:text-black">
@@ -142,7 +143,7 @@ export default function InquiryRoutes() {
           ))}
         </Stagger>
 
-        <Reveal delay={0.12} className="mt-8 rounded-3xl border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.025))] p-6 md:p-8">
+        <Reveal delay={0.12} className="glass-band mt-8 rounded-3xl p-6 md:p-8">
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="flex items-start gap-4">
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white text-black">

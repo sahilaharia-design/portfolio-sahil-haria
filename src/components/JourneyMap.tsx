@@ -51,8 +51,10 @@ const paths = [
 
 export default function JourneyMap() {
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-[#101010] px-6 py-14 md:px-24 md:py-20">
+    <section className="cinematic-section relative overflow-hidden border-y border-white/10 bg-[#101010] px-6 py-14 md:px-24 md:py-20">
       <div className="premium-grid pointer-events-none absolute inset-0 opacity-20" />
+      <div className="depth-panel -right-28 top-8 h-60 w-[34rem] rounded-[2rem]" />
+      <div className="depth-panel secondary -left-28 bottom-0 h-44 w-[28rem] rounded-[2rem]" />
       <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
         <Reveal>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-white/35">
@@ -87,7 +89,7 @@ export default function JourneyMap() {
             <StaggerItem key={label}>
               <a
                 href={href}
-                className="premium-card group flex min-h-[104px] items-center gap-4 rounded-3xl border border-white/8 bg-white/[0.035] p-4 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.07] md:p-5"
+                className="premium-card kinetic-card group flex min-h-[104px] items-center gap-4 rounded-3xl border border-white/8 bg-white/[0.035] p-4 transition-all duration-500 hover:bg-white/[0.07] md:p-5"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-white/72 transition-colors group-hover:bg-white group-hover:text-black">
                   <Icon className="h-5 w-5" />
@@ -103,7 +105,7 @@ export default function JourneyMap() {
           <StaggerItem>
             <a
               href="#jagruti"
-              className="premium-card group flex min-h-[104px] items-center gap-4 rounded-3xl border border-white/8 bg-white/[0.035] p-4 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.07] md:p-5"
+              className="premium-card kinetic-card group flex min-h-[104px] items-center gap-4 rounded-3xl border border-white/8 bg-white/[0.035] p-4 transition-all duration-500 hover:bg-white/[0.07] md:p-5"
             >
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-white/72 transition-colors group-hover:bg-white group-hover:text-black">
                 <Factory className="h-5 w-5" />

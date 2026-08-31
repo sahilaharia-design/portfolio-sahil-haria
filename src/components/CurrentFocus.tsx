@@ -13,8 +13,10 @@ export default function CurrentFocus() {
   };
 
   return (
-    <section id="focus" className="relative w-full overflow-hidden bg-[#121212] py-28 px-6 md:px-24 md:py-32">
+    <section id="focus" className="cinematic-section relative w-full overflow-hidden bg-[#121212] py-28 px-6 md:px-24 md:py-32">
       <div className="premium-grid pointer-events-none absolute inset-x-0 top-16 h-[520px] opacity-25" />
+      <div className="depth-panel left-[-12rem] top-72 h-80 w-[42rem] rounded-[2.5rem]" />
+      <div className="depth-panel secondary right-[-12rem] bottom-36 h-72 w-[38rem] rounded-[2.5rem]" />
       {/* Intro Text */}
       <Reveal className="relative z-10 max-w-4xl mx-auto mb-20 text-center md:mb-24 md:text-left">
         <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tight">
@@ -42,7 +44,7 @@ export default function CurrentFocus() {
       <div className="max-w-6xl mx-auto space-y-8">
         
         {/* PILLAR 1: MIRAR */}
-        <Reveal id="mirar" className="premium-card group relative w-full overflow-hidden rounded-3xl bg-white/[0.02] border border-white/10 p-6 md:p-16 transition-all duration-700 hover:bg-white/[0.04] hover:shadow-2xl hover:shadow-purple-950/20">
+        <Reveal id="mirar" className="premium-card kinetic-card group relative w-full overflow-hidden rounded-3xl bg-white/[0.02] border border-white/10 p-6 md:p-16 transition-all duration-700 hover:bg-white/[0.04] hover:shadow-2xl hover:shadow-purple-950/20">
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
           <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center">
@@ -93,7 +95,7 @@ export default function CurrentFocus() {
         </Reveal>
 
         {/* PILLAR 2: JAGRUTI */}
-        <Reveal id="jagruti" className="premium-card group relative w-full overflow-hidden rounded-3xl bg-[#1a1a1a] border border-[#333] p-6 md:p-16 transition-all duration-700 hover:border-[#555] hover:shadow-2xl hover:shadow-amber-950/15">
+        <Reveal id="jagruti" className="premium-card kinetic-card group relative w-full overflow-hidden rounded-3xl bg-[#1a1a1a] border border-[#333] p-6 md:p-16 transition-all duration-700 hover:border-[#555] hover:shadow-2xl hover:shadow-amber-950/15">
           <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
           
           <div className="relative z-10 flex flex-col md:flex-row-reverse gap-12 items-center">
@@ -146,7 +148,7 @@ export default function CurrentFocus() {
           
           {/* Jugaadors */}
           <StaggerItem>
-          <a href="https://www.jugaadors.com" target="_blank" rel="noreferrer" className="premium-card block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.06] hover:border-white/20">
+          <a href="https://www.jugaadors.com" target="_blank" rel="noreferrer" className="premium-card kinetic-card block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all duration-500 hover:bg-white/[0.06] hover:border-white/20">
             <div className="flex items-center justify-between mb-4">
               <div>
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.045]">
@@ -170,7 +172,7 @@ export default function CurrentFocus() {
 
           {/* Sociato */}
           <StaggerItem>
-          <a href="https://www.sociato.in" target="_blank" rel="noreferrer" className="premium-card block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.06] hover:border-white/20">
+          <a href="https://www.sociato.in" target="_blank" rel="noreferrer" className="premium-card kinetic-card block group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 p-8 transition-all duration-500 hover:bg-white/[0.06] hover:border-white/20">
             <div className="flex items-center justify-between mb-4">
               <div>
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.045]">

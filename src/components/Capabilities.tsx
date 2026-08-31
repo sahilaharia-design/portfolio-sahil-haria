@@ -33,7 +33,7 @@ const capabilityGroups = [
 
 export default function Capabilities() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
+    <section className="cinematic-section relative w-full overflow-hidden bg-[#121212] py-24 px-6 md:px-24">
       <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="max-w-7xl mx-auto">
         <Reveal>
@@ -46,7 +46,7 @@ export default function Capabilities() {
           {capabilityGroups.map((group, idx) => {
             const Icon = group.icon;
             return (
-              <StaggerItem key={idx} className="group flex flex-col">
+              <StaggerItem key={idx} className="premium-card kinetic-card group flex flex-col rounded-3xl border border-white/5 bg-white/[0.02] p-6">
                 <div className="flex items-center gap-3 mb-6 border-b border-white/10 pb-4">
                   <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.045] transition-colors duration-500 group-hover:bg-white/[0.08]">
                     <Icon className="w-4 h-4 text-white/70 transition-transform duration-500 group-hover:scale-110" />

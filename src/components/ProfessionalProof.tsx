@@ -72,7 +72,8 @@ const earlierChapters = [
 
 export default function ProfessionalProof() {
   return (
-    <section id="experience" className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
+    <section id="experience" className="cinematic-section relative w-full overflow-hidden bg-[#121212] py-24 px-6 md:px-24">
+      <div className="depth-panel secondary right-[-12rem] top-20 h-72 w-[38rem] rounded-[2.5rem]" />
       <div className="max-w-4xl mx-auto">
         
         <Reveal className="mb-16">

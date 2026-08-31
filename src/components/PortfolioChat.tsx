@@ -52,7 +52,7 @@ const knowledge: KnowledgeCard[] = [
     title: "Who is Sahil",
     triggers: ["who is sahil", "about sahil", "bio", "profile", "summary", "introduce sahil"],
     answer:
-      "Sahil Haria is a Mumbai-based founder, PhD holder, growth strategist, product thinker, and endurance builder with 15+ years of India and US experience across SaaS, apps, restaurants, nonprofits, e-commerce, consumer brands, board games, manufacturing, and self-reflection products. His current work is anchored in two main pillars: Mirar and Jagruti Group / Jagruti Steel. Jugaadors and Sociato are supporting ventures in that wider world.",
+      "Sahil Haria is a Mumbai-based founder, PhD holder, growth strategist, product thinker, and endurance builder with 15+ years of India and US experience across SaaS, apps, restaurants, nonprofits, e-commerce, consumer brands, board games, manufacturing, and self-reflection products. His current work spans Mirar, Jagruti Group / Jagruti Steel, Jugaadors, Sociato, speaking, growth systems, and thoughtful collaborations.",
     prompts: ["What is Sahil building now?", "What is his professional background?"],
   },
   {
@@ -68,7 +68,7 @@ const knowledge: KnowledgeCard[] = [
       "what is sahil building",
     ],
     answer:
-      "Sahil’s current work is anchored in two main pillars. Mirar is being built as an emotional and mental hygiene system for daily self-reflection. Jagruti Group / Jagruti Steel connects him to stainless steel manufacturing, OEM production, B2B growth, and legacy business modernization. He is also involved with Jugaadors, a board game company focused on modern Indian storytelling for global audiences, and Sociato, his digital marketing and creative execution foundation.",
+      "Sahil’s current work spans several connected worlds. Mirar is being built as an emotional and mental hygiene system for daily self-reflection. Jagruti Group / Jagruti Steel connects him to stainless steel manufacturing, OEM production, B2B growth, and legacy business modernization. Jugaadors is a board game company focused on modern Indian storytelling for global audiences, and Sociato is his digital marketing and creative execution foundation.",
     prompts: ["Tell me about Mirar", "Tell me about Jagruti", "How can we collaborate?"],
   },
   {
@@ -665,9 +665,9 @@ export default function PortfolioChat() {
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2">
                 <div className="mb-1 flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-white/35">
                   <BriefcaseBusiness className="h-3 w-3" />
-                  Current pillars
+                  Current worlds
                 </div>
-                <p className="text-sm font-semibold">Mirar + Jagruti</p>
+                <p className="text-sm font-semibold">Mirar · Jagruti · Jugaadors</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-3 py-2">
                 <div className="mb-1 flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-white/35">
@@ -772,19 +772,21 @@ export default function PortfolioChat() {
         </div>
       ) : null}
 
-      <button
-        type="button"
-        onClick={() => {
-          setIsOpen(true);
-          setTimeout(() => inputRef.current?.focus(), 50);
-        }}
-        className="group inline-flex h-14 w-14 items-center justify-center gap-3 rounded-full border border-white/12 bg-white px-0 text-sm font-semibold text-black shadow-xl shadow-black/30 transition-transform hover:scale-[1.02] sm:w-auto sm:px-5"
-        aria-label="Open portfolio chat"
-      >
-        <MessageCircle className="h-5 w-5" />
-        <span className="hidden sm:inline">Ask</span>
-        <ArrowRight className="hidden h-4 w-4 transition-transform group-hover:translate-x-0.5 sm:block" />
-      </button>
+      {!isOpen ? (
+        <button
+          type="button"
+          onClick={() => {
+            setIsOpen(true);
+            setTimeout(() => inputRef.current?.focus(), 50);
+          }}
+          className="group inline-flex h-14 w-14 items-center justify-center gap-3 rounded-full border border-white/12 bg-white px-0 text-sm font-semibold text-black shadow-xl shadow-black/30 transition-transform hover:scale-[1.02] sm:w-auto sm:px-5"
+          aria-label="Open portfolio chat"
+        >
+          <MessageCircle className="h-5 w-5" />
+          <span className="hidden sm:inline">Ask</span>
+          <ArrowRight className="hidden h-4 w-4 transition-transform group-hover:translate-x-0.5 sm:block" />
+        </button>
+      ) : null}
     </div>
   );
 }

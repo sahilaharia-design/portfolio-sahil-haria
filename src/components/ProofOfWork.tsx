@@ -50,8 +50,9 @@ const proofOfWork = [
 
 export default function ProofOfWork() {
   return (
-    <section id="proof" className="relative w-full overflow-hidden bg-[#121212] py-24 px-8 md:px-24">
+    <section id="proof" className="cinematic-section relative w-full overflow-hidden bg-[#121212] py-24 px-6 md:px-24">
       <div className="premium-grid pointer-events-none absolute inset-x-0 top-0 h-72 opacity-30" />
+      <div className="depth-panel left-[-11rem] top-32 h-64 w-[36rem] rounded-[2.5rem]" />
       <div className="max-w-7xl mx-auto relative z-10">
         <Reveal className="mb-16">
           <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">
@@ -68,7 +69,7 @@ export default function ProofOfWork() {
             return (
               <StaggerItem
                 key={idx}
-                className="premium-card group flex min-h-[360px] flex-col rounded-2xl border border-white/5 bg-white/[0.025] p-6 transition-all duration-500 hover:-translate-y-1 hover:bg-white/[0.045] hover:shadow-2xl hover:shadow-black/30 md:p-8"
+                className="premium-card kinetic-card group flex min-h-[360px] flex-col rounded-2xl border border-white/5 bg-white/[0.025] p-6 transition-all duration-500 hover:bg-white/[0.045] hover:shadow-2xl hover:shadow-black/30 md:p-8"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/[0.055]">
