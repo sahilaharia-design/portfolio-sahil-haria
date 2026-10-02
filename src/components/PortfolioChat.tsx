@@ -32,6 +32,7 @@ type KnowledgeCard = {
 const quickPrompts = [
   "What is Sahil building now?",
   "Tell me about Mirar",
+  "Watch Sahil’s reflections",
   "Tell me about Jagruti",
   "View Sahil’s experience",
   "Explore collaboration opportunities",
@@ -48,6 +49,12 @@ const collaborationPrompts = [
 ];
 
 const knowledge: KnowledgeCard[] = [
+  {
+    title: "Videos and reflections",
+    triggers: ["youtube", "videos", "watch", "phone", "brahma kumaris", "nasha mukt", "met college"],
+    answer: "Sahil's recent videos explore daily check-ins and the patterns we stop questioning: Your Phone Keeps Getting Upgraded. But Are You? and Phone toh charge ho gaya… par khud ka kya. Both connect to his inquiry behind Mirar. Watch them at https://www.sahilharia.com/#reflections. His MET College talk, Choose Purpose Over Addiction, was part of Nasha Mukt Bharat Abhiyan, an initiative driven by Brahma Kumaris: https://www.sahilharia.com/watch/choose-purpose-over-addiction. His channel is https://www.youtube.com/@sahilharia92.",
+    prompts: ["Tell me about Mirar", "Invite Sahil to speak"],
+  },
   {
     title: "Who is Sahil",
     triggers: ["who is sahil", "about sahil", "bio", "profile", "summary", "introduce sahil"],

@@ -9,6 +9,7 @@ const navItems = [
   { label: "Focus", href: "#focus" },
   { label: "Inquiries", href: "#inquiries" },
   { label: "Speaking", href: "#speaking" },
+  { label: "Reflections", href: "#reflections" },
   { label: "Proof", href: "#proof" },
   { label: "Experience", href: "#experience" },
   { label: "Connect", href: "#connect" },
@@ -57,7 +58,7 @@ export default function SiteNav() {
             </span>
           </a>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden items-center gap-1 xl:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -89,7 +90,7 @@ export default function SiteNav() {
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-white lg:hidden"
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-white xl:hidden"
               aria-expanded={open}
               aria-label={open ? "Close navigation" : "Open navigation"}
             >
@@ -100,7 +101,7 @@ export default function SiteNav() {
       </nav>
 
       {open ? (
-        <div className="mx-auto mt-2 max-w-7xl lg:hidden">
+        <div className="mx-auto mt-2 max-w-7xl xl:hidden">
           <div className="max-h-[min(72dvh,520px)] overflow-y-auto rounded-[28px] border border-white/12 bg-[#121212]/96 p-3 text-white shadow-2xl shadow-black/45 backdrop-blur-2xl">
             <div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3">
               <div className="flex items-center gap-3">

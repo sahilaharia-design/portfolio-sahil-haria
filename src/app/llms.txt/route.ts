@@ -10,7 +10,7 @@ LinkedIn: https://www.linkedin.com/in/sahilharia92/
 
 Dr. Sahil Haria, PhD is a Mumbai-based founder, growth strategist, product thinker, speaker, consultant, and endurance builder with 15+ years of India and US experience across SaaS, apps, restaurants, nonprofits, e-commerce, consumer brands, board games, stainless steel manufacturing, digital marketing, and self-reflection products.
 
-His current work is anchored in two main pillars:
+His current venture work includes:
 
 1. Mirar: an emotional and mental hygiene system for daily self-reflection.
 2. Jagruti Group / Jagruti Steel: a stainless steel manufacturing and OEM business rooted in legacy, operations, B2B relationships, and modernization.
@@ -43,6 +43,20 @@ Mirar: https://www.mirar.life
 Jagruti Steel: https://www.jagrutisteels.com
 Jugaadors: https://www.jugaadors.com
 Sociato: https://www.sociato.in
+
+## Videos and reflections
+
+YouTube: https://www.youtube.com/@sahilharia92
+Reflections: https://www.sahilharia.com/#reflections
+
+Your Phone Keeps Getting Upgraded. But Are You?: https://www.sahilharia.com/watch/your-phone-keeps-getting-upgraded
+A reflection on revisiting definitions of success, old fears, and patterns. Sahil x Mirar.
+
+Phone toh charge ho gaya… par khud ka kya: https://www.sahilharia.com/watch/phone-toh-charge-ho-gaya
+A reflection on attention, consciously chosen days, and checking in with ourselves. In collaboration with Mirar.
+
+Choose Purpose Over Addiction: https://www.sahilharia.com/watch/choose-purpose-over-addiction
+Sahil's full talk at MET College, part of Nasha Mukt Bharat Abhiyan, an initiative driven by Brahma Kumaris.
 
 ## Boundaries
 

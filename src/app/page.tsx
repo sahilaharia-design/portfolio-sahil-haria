@@ -10,6 +10,7 @@ import AcademicFoundation from "@/components/AcademicFoundation";
 import Capabilities from "@/components/Capabilities";
 import SpeakingMedia from "@/components/SpeakingMedia";
 import Writing from "@/components/Writing";
+import VideoReflections from "@/components/VideoReflections";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import PortfolioChat from "@/components/PortfolioChat";
@@ -151,9 +152,9 @@ const structuredData = {
     {
       "@type": "VideoObject",
       "@id": "https://www.sahilharia.com/#speaking-video",
-      name: "Dr. Sahil Haria speaking feature",
+      name: "Choose Purpose Over Addiction | Sahil Haria at MET College",
       description:
-        "A recent YouTube feature showcasing Dr. Sahil Haria’s founder-led perspective on building, growth, systems, and modern work.",
+        "Sahil Haria's talk at MET College, part of Nasha Mukt Bharat Abhiyan, an initiative driven by Brahma Kumaris.",
       embedUrl: "https://www.youtube.com/embed/J4iG1q_CLEk",
       url: "https://www.youtube.com/watch?v=J4iG1q_CLEk",
       thumbnailUrl: "https://i.ytimg.com/vi/J4iG1q_CLEk/hqdefault.jpg",
@@ -265,6 +266,7 @@ export default function Home() {
         <AcademicFoundation />
         <Capabilities />
         <SpeakingMedia />
+        <VideoReflections />
         <Writing />
         <Contact />
         <Footer />

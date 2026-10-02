@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { bookingUrl } from "@/lib/contact-links";
 import { Reveal, Stagger, StaggerItem } from "./MotionPrimitives";
+import VideoPlayer from "./VideoPlayer";
+import Link from "next/link";
 
 const talkLanes = [
   {
@@ -123,35 +125,24 @@ export default function SpeakingMedia() {
 
           <Reveal delay={0.08} className="flex flex-col gap-4">
             <div className="premium-card kinetic-card overflow-hidden rounded-[2rem] border border-white/10 bg-black/35 p-3 shadow-2xl shadow-black/30">
-              <div className="relative aspect-video overflow-hidden rounded-[1.45rem] bg-black">
-                <iframe
-                  className="absolute inset-0 h-full w-full"
-                  src="https://www.youtube.com/embed/J4iG1q_CLEk?si=WB3Jm5owNwry1irl"
-                  title="Dr. Sahil Haria speaking video"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
+              <VideoPlayer id="J4iG1q_CLEk" title="Choose Purpose Over Addiction — Sahil Haria at MET College" />
 
               <div className="p-4 md:p-5">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                   <div>
-                    <p className="text-base font-semibold text-white">Recent speaking feature</p>
+                    <p className="text-base font-semibold text-white">Choose Purpose Over Addiction</p>
                     <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/52">
-                      A live sample of Sahil’s tone: reflective, practical, founder-led, and grounded
-                      in real building rather than abstract advice.
+                      The full talk at MET College, delivered as part of Nasha Mukt Bharat
+                      Abhiyan, an initiative driven by Brahma Kumaris.
                     </p>
                   </div>
-                  <a
-                    href="https://www.youtube.com/watch?v=J4iG1q_CLEk"
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    href="/watch/choose-purpose-over-addiction"
                     className="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white/78 transition-colors hover:bg-white hover:text-black"
                   >
                     Watch
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
